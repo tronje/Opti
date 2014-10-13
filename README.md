@@ -1,4 +1,4 @@
-Opti
-====
+Optimierung
+===========
 
-Repository for math module Linear Programming
+Wer abschreiben will, bitte möglichst unauffällig. Danke!
