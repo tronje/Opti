@@ -1,6 +1,6 @@
-\newcommand{\authorinfotitle}{Tronje Krabbe, 6435002}
-\newcommand{\authorinfo}{Tronje Krabbe}
-\newcommand{\titleinfo}{Opti 01 20.10.2014}
+\newcommand{\authorinfotitle}{Tronje Krabbe, 6435002, Julian Tobergte, 6414935}
+\newcommand{\authorinfo}{Tronje Krabbe, Julian Tobergte}
+\newcommand{\titleinfo}{Optimierung 01 20.10.2014}
 \newcommand{\qed}{\square}
 
 \documentclass [a4paper,11pt]{article}
@@ -15,7 +15,11 @@
 %\usepackage{breqn}
 \usepackage{fancyhdr}
 \usepackage{multicol}
-
+% for dem plots
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+% ---
 \author{\authorinfotitle}
 \title{\titleinfo}
 \date{\today}
@@ -23,7 +27,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\authorinfo}
-\fancyhead[L]{Opti Hausaufgaben}
+\fancyhead[L]{Optimierung Hausaufgaben}
 \fancyfoot[C]{\thepage}
 
 \begin{document}
@@ -72,6 +76,31 @@
                             \end{align*}
                     \end{enumerate}
                 \item[b)]
+                % I have no idea what I'm doing here
+                \begin{tikzpicture} 
+    				\begin{axis}[enlargelimits=0]
+    				\addplot[name path=f,domain=0:15,blue] {-5x/2 + 5};
+					%main function    				
+    				\addplot[name path=m,domain=0:15,black] {-5x/3};
+
+    				\path[name path=axis] (axis cs:0,0) -- (axis cs:1,0);
+
+   					\addplot [
+        				thick,
+        				color=blue,
+        				fill=blue, 
+        				fill opacity=0.3
+    				]
+    				fill between[
+        			of=f and axis,
+        			soft clip={domain=0:15},
+    				];
+					% no use		
+    				%\node [rotate=48] at (axis cs:  .7,  .59) {$y=x^2$};
+    				%\node [rotate=90] at (axis cs:  1.05,  .25) {$x=1$};
+    				\end{axis}
+				\end{tikzpicture}  
+
             \end{enumerate}
         % Aufgabe 2
         \item[\textbf{2.}]
