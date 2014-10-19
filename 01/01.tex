@@ -12,7 +12,7 @@
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{enumerate}
-\usepackage{breqn}
+%\usepackage{breqn}
 \usepackage{fancyhdr}
 \usepackage{multicol}
 
@@ -31,7 +31,36 @@
     \begin{enumerate}
         % Aufgabe 1
         \item[\textbf{1.}]
-
+            \begin{enumerate}
+                \item[a)]
+                    Wir formulieren die gegebenen Probleme in Standardform:
+                    \begin{enumerate}
+                        \item[(i)]
+                            \begin{align*}
+                                %\text{Maximiere } -&x_1& + &x_2& + &x_3& - &2x_4& \\
+                                \text{Maximiere } -x_1 + x_2 + x_3 - 2x_4 \\
+                                \text{unter den Nebenbedingungen}\\
+                                %-7x_1+x_2-x_3 \geq -2\\
+                                7&x_1& - &x_2& + &x_3& && &\leq& 2\\
+                                && -5&x_2& + &x_3& - &x_4& &\leq& 7\\
+                                && 5&x_2& - &x_3& + &x_4& &\leq& -7\\
+                                -3&x_1& + &x_2& + 2&x_3& - &x_4& &\leq& -3\\
+                                &x_1,&&x_2,&&x_3,&&x_4& &\geq& 0
+                            \end{align*}
+                        \item[(ii)]
+                            \begin{align*}
+                                \text{Maximiere } x_1 - x_2 - x_3 +2x_4\\
+                                \text{unter den Nebenbedingungen}\\
+                                -7x_1 + x_2 + 4x_3' - 4x_3'' \leq -2\\
+                                3x_1 - x_2 - 2x_3' + x_3'' + x_4 \leq 3\\
+                                x_2 - 2x_4 \leq 7\\
+                                -x_2 + 2x_4 \leq -7\\
+                                x_4 \leq -9\\
+                                x_1,x_2,x_3',x_3'',x_4 \geq 0
+                            \end{align*}
+                    \end{enumerate}
+                \item[b)]
+            \end{enumerate}
         % Aufgabe 2
         \item[\textbf{2.}]
 
