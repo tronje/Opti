@@ -81,7 +81,7 @@
 %<<<<<<< HEAD
 
                     \begin{tikzpicture}
-                        %\path[fill = gray!30] (0,0)--(0,3)--(9/4,15/4)--(18/5,6-18/5)--(2,0)--cycle;
+                        \path[fill = gray!30] (0,0)--(0,2.5)--(9/4,19/4)--(24/7,25/7)--(2,0)--cycle;
                         \begin{axis}[
                             ymin = 0,ymax = 8.5,
                             xmin = 0,xmax = 8.5,
@@ -92,27 +92,14 @@
                             xlabel={$x_1$},
                             ylabel={$x_2$},
                             ]
-                            \addplot[name path=a,domain=0:8, very thick, no marks, black!50] {(7/2)*x - 7}; \addlegendentry{NB 1};
-                            \addplot[name path=b,domain=0:8, very thick, no marks, blue!50] {(2/3)*x + (5/3)}; \addlegendentry{NB 2};
-                            \addplot[domain=0:8, very thick, no marks, red!50] {-x +7}; \addlegendentry{NB 3};
-                            \addplot[domain=0:8, very thick, no marks, black, dotted] {-(5/3) * x + 26.5/3}; \addlegendentry{Lösungsgerade}
-                            % \addplot[domain=0:8, very thick, no marks, black, dotted] {-2/5 * x + 93/20 };
-                                \addlegendentry{$2x_1+5x_2+c$};
-
-                            \addplot [
-                                thick,
-                                color=black,
-                                fill=black,
-                                fill opacity=0.1
-                            ]
-                            fill between[
-                                of=a and b,
-                                soft clip={domain=0:3},
-                            ];
+                            \addplot[name path=a,domain=0:8, very thick, no marks, black!50] {(5/2)*x - 5}; %\addlegendentry{NB 1};
+                            \addplot[name path=b,domain=0:8, very thick, no marks, black!50] {x + (5/2)}; %\addlegendentry{NB 2};
+                            \addplot[name path=c,domain=0:8, very thick, no marks, black!50] {-x +7}; %\addlegendentry{NB 3};
+                            \addplot[domain=0:8, very thick, no marks, black, dotted] {-(5/3) * x + 28/3}; %\addlegendentry{Lösungsgerade}
                         \end{axis}
                     \end{tikzpicture}
                     \\
-                    Die optimale Lösung ist also bei $x_1 = \frac{52}{17}$ und $x_2 = \frac{63}{17}$
+                    Die optimale Lösung ist also bei $x_1 = \frac{24}{7}$ und $x_2 = \frac{25}{7}$
 %=======
                 % I have no idea what I'm doing here
 %                 \begin{tikzpicture} 
