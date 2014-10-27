@@ -39,6 +39,45 @@
     \begin{enumerate}
         % Aufgabe 1
         \item[\textbf{1.}]
+            Starttableau:
+            \begin{align*}
+            \begin{alignedat}{6}
+            & x_4 &\ = &\ 7 &\ - &\ x_1 &\ - &\ 3x_2 &\ - &\ 2x_3 \\
+            & x_5 &\ = &\ 4 &\ - &\ x_1 &\ - &\ 2x_2 &\ - &\  x_3 \\
+            & x_6 &\ = &\ 5 &    &      &\ - &\ 3x_2 &\ - &\ 2x_3 \\
+            &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
+            & z   &\ = &    &    &\ 2x_1 &\ + &\  4x_2 &\ + &\ 3x_3 
+            \end{alignedat}
+            \end{align*}
+            1. Iteration:\\
+            Eingangsvariable: $x_2$, da es den größten Koeffizienten in $z$ hat\\
+            Ausgangsvariable: $x_6$, da:
+            \begin{align*}
+                &x_1 = x_3 = 0\\
+                & 0 \leq x_4 = 7 - 3x_2 \Rightarrow x_2 \geq \frac{7}{3}\\
+                & 0 \leq x_5 = 4 - 2x_2 \Rightarrow x_2 \leq 2\\
+                & 0 \leq x_6 = 5 - 3x_2 \Rightarrow x_2 \leq \frac{5}{3} \Rightarrow \text{strengste Beschränkung}
+            \end{align*}
+            Es folgt:
+            \begin{align*}
+                & x_2  = \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6\\
+                & x_4  = 7 - x_1 - 3\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) - 2x_3\\
+                &    \ = 2 - x_1 + \frac{8}{3}x_3 + \frac{1}{3} x_6\\
+                & x_5  = 4 - x_1 - 2\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) - x_3\\
+                &    \ = \frac{2}{3} - x_1 + \frac{1}{3} x_3 + \frac{2}{3} x_6\\
+                &   z  = 2x_1 + 4\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) + 3x_3\\
+                &    \ = \frac{20}{3} + 2x_1 + \frac{1}{3} x_3 - \frac{4}{3} x_6
+            \end{align*}
+            Ergebnis der 1. Iteration:
+            \begin{align*}
+            \begin{alignedat}{6}
+            & x_2 &\ = &\ \frac{5}{3}  &    &       &\ - &\ \frac{2}{3}x_3 &\ - &\ \frac{1}{3}x_6 \\
+            & x_4 &\ = &\ 2            &\ - &\  x_1 &\ + &\ \frac{8}{3}x_3 &\ + &\ \frac{1}{3}x_6 \\
+            & x_5 &\ = &\ \frac{2}{3}  &\ - &\  x_1 &\ + &\ \frac{1}{3}x_3 &\ + &\ \frac{2}{3}x_6 \\
+            &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
+            & z   &\ = &\ \frac{20}{3} &\ + &\ 2x_1 &\ + &\ \frac{1}{3}x_3 &\ - &\ \frac{4}{3}x_6
+            \end{alignedat}
+            \end{align*}
 
         % Aufgabe 2
         \item[\textbf{2.}]
