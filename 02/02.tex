@@ -148,8 +148,8 @@
 
                 1. Iteration:\\
                 Eingangsvariable: $x_1$\\
-                Ausgangsvariable: $x_7$
-                Es folgt
+                Ausgangsvariable: $x_7$\\
+                Es folgt:
                 \begin{align*}
                 & x_1 = \frac{2}{3} + \frac{4}{3}x_2 + \frac{1}{3}x_3 - \frac{1}{3}x_7\\
                 & x_4 = 4 - 3\left( \frac{2}{3} + \frac{4}{3}x_2 + \frac{1}{3}x_3 - \frac{1}{3}x_7 \right) - 3x_2 + x_3\\
@@ -161,8 +161,45 @@
                 &   z = 9 \left( \frac{2}{3} + \frac{4}{3}x_2 + \frac{1}{3}x_3 - \frac{1}{3}x_7 \right) - 5x_2 - 4x_3\\
                 &   \ = 6 + 7x_2 - x_3 - 3x_7
                 \end{align*}
-                
+                \underline{Ergebnis der 1. Iteration}:
+                \begin{align*}
+                \begin{alignedat}{6}
+                & x_1 &\ = &\ \frac{2}{3}  &\ + &\  \frac{4}{3}x_2 &\ + &\ \frac{1}{3}x_3 &\ - &\ \frac{1}{3}x_7 \\
+                & x_4 &\ = &\ 2            &\ - &\            7x_2 &    &                 &\ + &\ x_7 \\
+                & x_5 &\ = &\ \frac{8}{3}  &\ - &\ \frac{29}{3}x_2 &\ - &\ \frac{8}{3}x_3 &\ + &\ \frac{5}{3}x_7 \\
+                & x_6 &\ = &\ \frac{8}{3}  &\ - &\  \frac{5}{3}x_2 &\ - &\ \frac{2}{3}x_3 &\ - &\ \frac{1}{3}x_7 \\
+                &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
+                & z   &\ = &\ 6            &\ + &\            7x_2 &\ - &\            x_3 &\ - &\ 3x_7
+                \end{alignedat}
+                \end{align*}
 
+                2. Iteration:\\
+                Eingangsvariable: $x_2$\\
+                Ausgangsvariable: $x_5$\\
+                Es folgt:
+                \begin{align*}
+                & x_2 = \frac{8}{29} - \frac{8}{29}x_3 + \frac{5}{29}x_7 - \frac{3}{29}x_5\\
+                & x_1 = \frac{2}{3} + \frac{4}{3} \left( \frac{8}{29} - \frac{8}{29}x_3 + \frac{5}{29}x_7 - \frac{3}{29}x_5 \right) + \frac{1}{3}x_3 - \frac{1}{3}x_7\\
+                &   \ = \frac{30}{29} - \frac{1}{29}x_3 - \frac{3}{29}x_7 - \frac{4}{29}x_5\\
+                & x_4 = 2 - 7 \left( \frac{8}{29} - \frac{8}{29}x_3 + \frac{5}{29}x_7 - \frac{3}{29}x_5 \right)  + x_7 \\
+                &   \ = \frac{2}{29} + \frac{56}{29}x_3 - \frac{6}{29}x_7 + \frac{21}{29}x_5\\
+                & x_6 = \frac{8}{3} - \frac{5}{3} \left( \frac{8}{29} - \frac{8}{29}x_3 + \frac{5}{29}x_7 - \frac{3}{29}x_5 \right) - \frac{2}{3}x_3 - \frac{1}{3}x_7 \\
+                &   \ = \frac{64}{29} - \frac{6}{29}x_3 - \frac{18}{29}x_7 + \frac{5}{29}x_5\\
+                &   z = 6 + 7 \left( \frac{8}{29} - \frac{8}{29}x_3 + \frac{5}{29}x_7 - \frac{3}{29}x_5 \right) - x_3 - 3x_7\\
+                &   \ = \frac{230}{29} - \frac{85}{29}x_3 - \frac{52}{29}x_7 - \frac{21}{29}x_5
+                \end{align*}
+                \underline{Ergebnis der 2. iteration}:
+                \begin{align*}
+                \begin{alignedat}{6}
+                & x_2 &\ = &\ \frac{8}{29}   &\ - &\  \frac{8}{29}x_3 &\ + &\  \frac{5}{29}x_7 &\ - &\ \frac{3}{29}x_5 \\
+                & x_1 &\ = &\ \frac{30}{29}  &\ - &\  \frac{1}{29}x_3 &\ - &\  \frac{3}{29}x_7 &\ - &\ \frac{4}{29}x_5 \\
+                & x_4 &\ = &\ \frac{2}{29}   &\ + &\ \frac{56}{29}x_3 &\ - &\  \frac{6}{29}x_7 &\ + &\ \frac{21}{29}x_5 \\
+                & x_6 &\ = &\ \frac{64}{29}  &\ - &\  \frac{6}{29}x_3 &\ - &\ \frac{18}{29}x_7 &\ + &\ \frac{5}{29}x_5 \\
+                &\rlap{\rule{6cm}{.1pt}} &&&&&&&&\\
+                & z   &\ = &\ \frac{230}{29} &\ - &\ \frac{85}{29}x_3 &\ - &\ \frac{52}{29}x_7 &\ - &\ \frac{21}{29}x_5
+                \end{alignedat}
+                \end{align*}
+                Dieses Tableau liefert die optimale Lösung mit $x_1 = \frac{30}{29}$, $x_2 = \frac{8}{29}$, $x_3 = 0$ und $z = \frac{230}{29}$.
             \end{enumerate}
         % Aufgabe 2
         \item[\textbf{2.}]
