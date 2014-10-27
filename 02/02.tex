@@ -203,7 +203,66 @@
             \end{enumerate}
         % Aufgabe 2
         \item[\textbf{2.}]
-
+            \underline{Starttableau}:
+            \begin{align*}
+            \begin{alignedat}{6}
+            & x_5 &\ = &\ 4 &\ - &\  x_1 &\ - &\  3x_2 &\ - &\  x_3 &\ - &\ x_4 \\
+            & x_6 &\ = &\ 1 &\ - &\  x_1 &\ + &\  7x_2 &\ + &\ 3x_3 &\ + &\ x_4 \\
+            &\rlap{\rule{6cm}{.1pt}} &&&&&&&&&&\\
+            & z   &\ = &    &    &\ 4x_1 &\ - &\ 13x_2 &\ - &\ 9x_3 &\ + &\ x_4
+            \end{alignedat}
+            \end{align*}
+            1. Iteration:\\
+            Eingangsvariable: $x_1$\\
+            Ausgangsvariable: $x_6$\\
+            Es folgt:
+            \begin{align*}
+            & x_1 = 1 + 7x_2 + 3x_3 + x_4 - x_6\\
+            & x_5 = 4 - \left( 1 + 7x_2 + 3x_3 + x_4 - x_6 \right) - 3x_2 - x_3 - x_4\\
+            &   \ = 3 - 10x_2 - 4x_3 - 2x_4 + x_6\\
+            &   z = 4 \left( 1 + 7x_2 + 3x_3 + x_4 - x_6 \right) - 13x_2 - 9x_3 + x_4\\
+            &   \ = 4 + 15x_2 + 3x_3 + 5x_4 - 4x_6
+            \end{align*}
+            \underline{Ergebnis der 1. Iteration}:
+            \begin{align*}
+            \begin{alignedat}{6}
+            & x_1 &\ = &\ 1 &\ + &\  7x_2 &\ + &\ 3x_3 &\ + &\  x_4 &\ - &\ x_6 \\
+            & x_5 &\ = &\ 3 &\ - &\ 10x_2 &\ - &\ 4x_3 &\ - &\ 2x_4 &\ + &\ x_6 \\
+            &\rlap{\rule{6cm}{.1pt}} &&&&&&&&&&\\
+            & z   &\ = &\ 4 &\ + &\ 15x_2 &\ + &\ 3x_3 &\ + &\ 5x_4 &\ - &\ 4x_6
+            \end{alignedat}
+            \end{align*}
+            2. Iteration:\\
+            Eingangsvariable: $x_2$\\
+            Ausgangsvariable: $x_5$\\
+            Es folgt:
+            \begin{align*}
+            & x_2 = \frac{3}{10} - \frac{2}{5}x_3 - \frac{1}{5}x_4 + \frac{1}{10}x_6 - \frac{1}{10}x_5\\
+            & x_1 = 1 + 7 \left( \frac{3}{10} - \frac{2}{5}x_3 - \frac{1}{5}x_4 + \frac{1}{10}x_6 - \frac{1}{10}x_5 \right) + 3x_3 + x_4 - x_6\\
+            &   \ = \frac{31}{10} + \frac{1}{5}x_3 - \frac{2}{5}x_4 - \frac{3}{10}x_6 - \frac{7}{10}x_5\\
+            &   z = 4 + 15 \left( \frac{3}{10} - \frac{2}{5}x_3 - \frac{1}{5}x_4 + \frac{1}{10}x_6 - \frac{1}{10}x_5 \right) + 3x_3 + 5x_4 - 4x_6\\
+            &   \ = \frac{85}{10} + 3x_3 + 2x_4 - \frac{5}{2}x_6 - \frac{3}{2}x_5
+            \end{align*}
+            \underline{Ergebnis der 2. Iteration}:
+            \begin{align*}
+            \begin{alignedat}{6}
+            & x_2 &\ = &\  \frac{3}{10} &\ - &\ \frac{2}{5}x_3 &\ - &\ \frac{1}{5}x_4 &\ + &\ \frac{1}{10}x_6 &\ - &\ \frac{1}{10}x_5 \\
+            & x_1 &\ = &\ \frac{31}{10} &\ + &\ \frac{1}{5}x_3 &\ - &\ \frac{2}{5}x_4 &\ - &\ \frac{3}{10}x_6 &\ - &\ \frac{7}{10}x_5 \\
+            &\rlap{\rule{7cm}{.1pt}} &&&&&&&&&&\\
+            & z   &\ = &\ \frac{85}{10} &\ + &\           3x_3 &\ + &\           2x_4 &\ - &\  \frac{5}{2}x_6 &\ - &\ \frac{3}{2}x_5
+            \end{alignedat}
+            \end{align*}
+            3. Iteration:\\
+            Eingangsvariable: $x_3$\\
+            Ausgangsvariable: $x_2$\\
+            Es folgt:
+            \begin{align*}
+            & x_3 = \frac{3}{4} - \frac{1}{2}x_4 + \frac{1}{4}x_6 - \frac{1}{4}x_5 - \frac{5}{2}x_2\\
+            & x_1 = \frac{31}{10} + \frac{1}{5} \left( \frac{3}{4} - \frac{1}{2}x_4 + \frac{1}{4}x_6 - \frac{1}{4}x_5 - \frac{5}{2}x_2 \right) - \frac{2}{5}x_4 - \frac{3}{10}x_6 - \frac{7}{10}x_5\\
+            &   \ = \frac{13}{4} - \frac{1}{2}x_4 - \frac{1}{4}x_6 - \frac{3}{4}x_5 - \frac{1}{2}x_2\\
+            &   z = \frac{85}{10} + 3\left( \frac{3}{4} - \frac{1}{2}x_4 + \frac{1}{4}x_6 - \frac{1}{4}x_5 - \frac{5}{2}x_2 \right) + 2x_4 - \frac{5}{2}x_6 - \frac{3}{2}x_5\\
+            &   \ = \frac{43}{4}
+            \end{align*}
 
     \end{enumerate}
 
