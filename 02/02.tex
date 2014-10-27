@@ -39,46 +39,103 @@
     \begin{enumerate}
         % Aufgabe 1
         \item[\textbf{1.}]
-            Starttableau:
-            \begin{align*}
-            \begin{alignedat}{6}
-            & x_4 &\ = &\ 7 &\ - &\ x_1 &\ - &\ 3x_2 &\ - &\ 2x_3 \\
-            & x_5 &\ = &\ 4 &\ - &\ x_1 &\ - &\ 2x_2 &\ - &\  x_3 \\
-            & x_6 &\ = &\ 5 &    &      &\ - &\ 3x_2 &\ - &\ 2x_3 \\
-            &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
-            & z   &\ = &    &    &\ 2x_1 &\ + &\  4x_2 &\ + &\ 3x_3 
-            \end{alignedat}
-            \end{align*}
-            1. Iteration:\\
-            Eingangsvariable: $x_2$, da es den größten Koeffizienten in $z$ hat\\
-            Ausgangsvariable: $x_6$, da:
-            \begin{align*}
-                &x_1 = x_3 = 0\\
-                & 0 \leq x_4 = 7 - 3x_2 \Rightarrow x_2 \geq \frac{7}{3}\\
-                & 0 \leq x_5 = 4 - 2x_2 \Rightarrow x_2 \leq 2\\
-                & 0 \leq x_6 = 5 - 3x_2 \Rightarrow x_2 \leq \frac{5}{3} \Rightarrow \text{strengste Beschränkung}
-            \end{align*}
-            Es folgt:
-            \begin{align*}
-                & x_2  = \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6\\
-                & x_4  = 7 - x_1 - 3\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) - 2x_3\\
-                &    \ = 2 - x_1 + \frac{8}{3}x_3 + \frac{1}{3} x_6\\
-                & x_5  = 4 - x_1 - 2\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) - x_3\\
-                &    \ = \frac{2}{3} - x_1 + \frac{1}{3} x_3 + \frac{2}{3} x_6\\
-                &   z  = 2x_1 + 4\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) + 3x_3\\
-                &    \ = \frac{20}{3} + 2x_1 + \frac{1}{3} x_3 - \frac{4}{3} x_6
-            \end{align*}
-            Ergebnis der 1. Iteration:
-            \begin{align*}
-            \begin{alignedat}{6}
-            & x_2 &\ = &\ \frac{5}{3}  &    &       &\ - &\ \frac{2}{3}x_3 &\ - &\ \frac{1}{3}x_6 \\
-            & x_4 &\ = &\ 2            &\ - &\  x_1 &\ + &\ \frac{8}{3}x_3 &\ + &\ \frac{1}{3}x_6 \\
-            & x_5 &\ = &\ \frac{2}{3}  &\ - &\  x_1 &\ + &\ \frac{1}{3}x_3 &\ + &\ \frac{2}{3}x_6 \\
-            &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
-            & z   &\ = &\ \frac{20}{3} &\ + &\ 2x_1 &\ + &\ \frac{1}{3}x_3 &\ - &\ \frac{4}{3}x_6
-            \end{alignedat}
-            \end{align*}
+            \begin{enumerate}
+            \item[a)]
+                \underline{Starttableau}:
+                \begin{align*}
+                \begin{alignedat}{6}
+                & x_4 &\ = &\ 7 &\ - &\ x_1 &\ - &\ 3x_2 &\ - &\ 2x_3 \\
+                & x_5 &\ = &\ 4 &\ - &\ x_1 &\ - &\ 2x_2 &\ - &\  x_3 \\
+                & x_6 &\ = &\ 5 &    &      &\ - &\ 3x_2 &\ - &\ 2x_3 \\
+                &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
+                & z   &\ = &    &    &\ 2x_1 &\ + &\  4x_2 &\ + &\ 3x_3 
+                \end{alignedat}
+                \end{align*}
+                1. Iteration:\\
+                Eingangsvariable: $x_2$, da es den größten Koeffizienten in $z$ hat\\
+                Ausgangsvariable: $x_6$, da:
+                \begin{align*}
+                    &x_1 = x_3 = 0\\
+                    & 0 \leq x_4 = 7 - 3x_2 \Rightarrow x_2 \geq \frac{7}{3}\\
+                    & 0 \leq x_5 = 4 - 2x_2 \Rightarrow x_2 \leq 2\\
+                    & 0 \leq x_6 = 5 - 3x_2 \Rightarrow x_2 \leq \frac{5}{3} \Rightarrow \text{stärkste Beschränkung}
+                \end{align*}
+                Es folgt:
+                \begin{align*}
+                    & x_2  = \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6\\
+                    & x_4  = 7 - x_1 - 3\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) - 2x_3\\
+                    &    \ = 2 - x_1 + \frac{8}{3}x_3 + \frac{1}{3} x_6\\
+                    & x_5  = 4 - x_1 - 2\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) - x_3\\
+                    &    \ = \frac{2}{3} - x_1 + \frac{1}{3} x_3 + \frac{2}{3} x_6\\
+                    &   z  = 2x_1 + 4\left( \frac{5}{3} - \frac{2}{3} x_3 -\frac{1}{3} x_6 \right) + 3x_3\\
+                    &    \ = \frac{20}{3} + 2x_1 + \frac{1}{3} x_3 - \frac{4}{3} x_6
+                \end{align*}
+                \underline{Ergebnis der 1. Iteration}:
+                \begin{align*}
+                \begin{alignedat}{6}
+                & x_2 &\ = &\ \frac{5}{3}  &    &       &\ - &\ \frac{2}{3}x_3 &\ - &\ \frac{1}{3}x_6 \\
+                & x_4 &\ = &\ 2            &\ - &\  x_1 &\ + &\ \frac{8}{3}x_3 &\ + &\ \frac{1}{3}x_6 \\
+                & x_5 &\ = &\ \frac{2}{3}  &\ - &\  x_1 &\ + &\ \frac{1}{3}x_3 &\ + &\ \frac{2}{3}x_6 \\
+                &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
+                & z   &\ = &\ \frac{20}{3} &\ + &\ 2x_1 &\ + &\ \frac{1}{3}x_3 &\ - &\ \frac{4}{3}x_6
+                \end{alignedat}
+                \end{align*}
 
+                2. Iteration:\\
+                Eingangsvariable: $x_1$\\
+                Ausgangsvariable: $x_5$, da:
+                \begin{align*}
+                    &x_3 = x_6 = 0\\
+                    & 0 \leq 2 - x_1 \Rightarrow x_1 \leq 2 \\
+                    & 0 \leq \frac{2}{3} - x_1 \Rightarrow x_1 \leq \frac{2}{3} \Rightarrow \text{stärkste Beschränkung}
+                \end{align*}
+                Es folgt:
+                \begin{align*}
+                & x_1 = \frac{2}{3} + \frac{1}{3}x_3 + \frac{2}{3}x_6 - x_5\\
+                & x_2 = \frac{5}{3} - \frac{2}{3}x_3 - \frac{1}{3}x_6\\
+                & x_4 = 2 - \left( \frac{2}{3} + \frac{1}{3}x_3 + \frac{2}{3}x_6 - x_5 \right) + \frac{8}{3}x_3 + \frac{1}{3}x_6\\
+                &   \ = \frac{4}{3} +\frac{7}{3}x_3 - \frac{1}{3}x_6 - x_5\\
+                &   z = \frac{20}{3} + 2 \left( \frac{2}{3} + \frac{1}{3}x_3 + \frac{2}{3}x_6 - x_5 \right) + \frac{1}{3}x_3 - \frac{4}{3}x_6\\
+                &   \ = 8 + x_3 - 2x_5
+                \end{align*}
+                \underline{Ergebnis der 2. Iteration}:
+                \begin{align*}
+                \begin{alignedat}{6}
+                & x_1 &\ = &\ \frac{2}{3}  &\ + &\ \frac{1}{3}x_3 &\ + &\ \frac{2}{3}x_6 &\ - &\ x_5 \\
+                & x_2 &\ = &\ \frac{5}{3}  &\ - &\ \frac{2}{3}x_3 &\ - &\ \frac{1}{3}x_6 &    & \\
+                & x_4 &\ = &\ \frac{4}{3}  &\ + &\ \frac{7}{3}x_3 &\ - &\ \frac{1}{3}x_6 &\ - &\ x_5 \\
+                &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
+                & z   &\ = &\ 8 &\ + &\ x_3 & & &\ - &\ 2x_5
+                \end{alignedat}
+                \end{align*}
+
+                3. Iteration:\\
+                Eingangsvariable: $x_3$\\
+                Ausgangsvariable: $x_2$\\
+                Es folgt:
+                \begin{align*}
+                & x_3 = \frac{5}{2} - \frac{1}{2}x_6 - \frac{3}{2}x_2\\
+                & x_1 = \frac{2}{3} + \frac{1}{3} \left( \frac{5}{2} - \frac{1}{2}x_6 - \frac{3}{2}x_2 \right) + \frac{2}{3}x_6 - x_5\\
+                &   \ = \frac{3}{2} + \frac{1}{6}x_6 - x_5 - \frac{1}{2}x_2\\
+                & x_4 = \frac{4}{3} + \frac{7}{3} \left( \frac{5}{2} - \frac{1}{2}x_6 - \frac{3}{2}x_2 \right) - \frac{1}{3}x_6 - x_5\\
+                &   \ = \frac{43}{6} -\frac{3}{2}x_6 - x_5 - \frac{7}{2}x_2\\
+                &   z =           8 + \left( \frac{5}{2} - \frac{1}{2}x_6 - \frac{3}{2}x_2 \right) - 2x_5\\
+                &   \ = \frac{21}{2}- 4x_6 - 2x_5 - 12x_2
+                \end{align*}
+                \underline{Ergebnis der 3. Iteration}:
+                \begin{align*}
+                \begin{alignedat}{6}
+                & x_3 &\ = &\ \frac{5}{2}  &\ - &\ \frac{1}{2}x_6 &    &                 &\ - &\ \frac{3}{2}x_2 \\
+                & x_1 &\ = &\ \frac{3}{2}  &\ + &\ \frac{1}{6}x_6 &\ - &\ x_5            &\ - &\ \frac{1}{2}x_2 \\
+                & x_4 &\ = &\ \frac{43}{6} &\ - &\ \frac{3}{2}x_6 &\ - &\ x_5            &\ - &\ \frac{7}{2}x_2 \\
+                &\rlap{\rule{5cm}{.1pt}} &&&&&&&&\\
+                & z   &\ = &\ \frac{21}{2} &\ - &\ 4x_6 &\ - &\ 2x_5 &\ - &\ 12x_2
+                \end{alignedat}
+                \end{align*}
+                Dieses Tableau liefert die optimale Lösung mit $x_1 = \frac{3}{2}$, $x_2 = 0$, $x_3 = \frac{5}{2}$ und $z=\frac{21}{2}$.
+            \item[b)]
+                
+            \end{enumerate}
         % Aufgabe 2
         \item[\textbf{2.}]
 
