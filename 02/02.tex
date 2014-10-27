@@ -241,7 +241,7 @@
             & x_1 = 1 + 7 \left( \frac{3}{10} - \frac{2}{5}x_3 - \frac{1}{5}x_4 + \frac{1}{10}x_6 - \frac{1}{10}x_5 \right) + 3x_3 + x_4 - x_6\\
             &   \ = \frac{31}{10} + \frac{1}{5}x_3 - \frac{2}{5}x_4 - \frac{3}{10}x_6 - \frac{7}{10}x_5\\
             &   z = 4 + 15 \left( \frac{3}{10} - \frac{2}{5}x_3 - \frac{1}{5}x_4 + \frac{1}{10}x_6 - \frac{1}{10}x_5 \right) + 3x_3 + 5x_4 - 4x_6\\
-            &   \ = \frac{85}{10} + 3x_3 + 2x_4 - \frac{5}{2}x_6 - \frac{3}{2}x_5
+            &   \ = \frac{17}{2} - 3x_3 + 2x_4 - \frac{5}{2}x_6 - \frac{3}{2}x_5
             \end{align*}
             \underline{Ergebnis der 2. Iteration}:
             \begin{align*}
@@ -249,21 +249,30 @@
             & x_2 &\ = &\  \frac{3}{10} &\ - &\ \frac{2}{5}x_3 &\ - &\ \frac{1}{5}x_4 &\ + &\ \frac{1}{10}x_6 &\ - &\ \frac{1}{10}x_5 \\
             & x_1 &\ = &\ \frac{31}{10} &\ + &\ \frac{1}{5}x_3 &\ - &\ \frac{2}{5}x_4 &\ - &\ \frac{3}{10}x_6 &\ - &\ \frac{7}{10}x_5 \\
             &\rlap{\rule{7cm}{.1pt}} &&&&&&&&&&\\
-            & z   &\ = &\ \frac{85}{10} &\ + &\           3x_3 &\ + &\           2x_4 &\ - &\  \frac{5}{2}x_6 &\ - &\ \frac{3}{2}x_5
+            & z   &\ = &\ \frac{17}{2} &\ - &\           3x_3 &\ + &\           2x_4 &\ - &\  \frac{5}{2}x_6 &\ - &\ \frac{3}{2}x_5
             \end{alignedat}
             \end{align*}
             3. Iteration:\\
-            Eingangsvariable: $x_3$\\
+            Eingangsvariable: $x_4$\\
             Ausgangsvariable: $x_2$\\
             Es folgt:
             \begin{align*}
-            & x_3 = \frac{3}{4} - \frac{1}{2}x_4 + \frac{1}{4}x_6 - \frac{1}{4}x_5 - \frac{5}{2}x_2\\
-            & x_1 = \frac{31}{10} + \frac{1}{5} \left( \frac{3}{4} - \frac{1}{2}x_4 + \frac{1}{4}x_6 - \frac{1}{4}x_5 - \frac{5}{2}x_2 \right) - \frac{2}{5}x_4 - \frac{3}{10}x_6 - \frac{7}{10}x_5\\
-            &   \ = \frac{13}{4} - \frac{1}{2}x_4 - \frac{1}{4}x_6 - \frac{3}{4}x_5 - \frac{1}{2}x_2\\
-            &   z = \frac{85}{10} + 3\left( \frac{3}{4} - \frac{1}{2}x_4 + \frac{1}{4}x_6 - \frac{1}{4}x_5 - \frac{5}{2}x_2 \right) + 2x_4 - \frac{5}{2}x_6 - \frac{3}{2}x_5\\
-            &   \ = \frac{43}{4}
+            & x_4 = \frac{3}{2} - 2x_3 + \frac{1}{2}x_6 - \frac{1}{2}x_5 - 5x_2\\
+            & x_1 = \frac{31}{10} + \frac{1}{5}x_3 - \frac{2}{5} \left( \frac{3}{2} - 2x_3 + \frac{1}{2}x_6 - \frac{1}{2}x_5 - 5x_2 \right) - \frac{3}{10}x_6 - \frac{7}{10}x_5\\
+            &   \ = \frac{5}{2} + x_3 - \frac{1}{2}x_6 - \frac{1}{2}x_5 - 2x_2\\
+            &   z = \frac{17}{2} - 3x_3 + 2\left( \frac{3}{2} - 2x_3 + \frac{1}{2}x_6 - \frac{1}{2}x_5 - 5x_2 \right) - \frac{5}{2}x_6 - \frac{3}{2}x_5\\
+            &   \ = \frac{23}{2} - 7x_3 - \frac{3}{2}x_6 - \frac{5}{2}x_5 - 10x_2
             \end{align*}
-
+            \underline{Ergebnis der 3. Iteration}:
+            \begin{align*}
+            \begin{alignedat}{6}
+            & x_4 &\ = &\  \frac{3}{2} &\ - &\ 2x_3 &\ + &\ \frac{1}{2}x_6 &\ - &\ \frac{1}{2}x_5 &\ - &\ 5x_2 \\
+            & x_1 &\ = &\  \frac{5}{2} &\ + &\  x_3 &\ - &\ \frac{1}{2}x_6 &\ - &\ \frac{1}{2}x_5 &\ - &\ 2x_2 \\
+            &\rlap{\rule{7cm}{.1pt}} &&&&&&&&&&\\
+            & z   &\ = &\ \frac{23}{2} &\ - &\ 7x_3 &\ - &\ \frac{3}{2}x_6 &\ - &\  \frac{5}{2}x_5 &\ - &\ 10x_2
+            \end{alignedat}
+            \end{align*}
+            Dieses Tableau ist die optimale Lösung mit $x_1 = \frac{5}{2}$, $x_2 = 0$, $x_3 = 0$, $x_4 = \frac{3}{2}$ und $z = \frac{23}{2}$.
     \end{enumerate}
 
 
