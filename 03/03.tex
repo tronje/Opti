@@ -1,0 +1,154 @@
+\newcommand{\authorinfotitle}{Carolin Konietzny, 6523939, Gruppe 3\\ Tronje Krabbe, 6435002, Gruppe 7 \\ Julian Tobergte, 6414935, Gruppe 5}
+\newcommand{\authorinfo}{Carolin Konietzny, Tronje Krabbe, Julian Tobergte}
+\newcommand{\titleinfo}{Optimierung 02 27.10.2014}
+\newcommand{\qed}{\square}
+
+\documentclass [a4paper,11pt]{article}
+\usepackage[german,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{enumerate}
+%\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+
+\usepackage[a4paper,left=2cm,width=13cm,right=3cm]{geometry}
+
+% for dem plots
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+% ---
+
+\author{\authorinfotitle}
+\title{\titleinfo}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\authorinfo}
+\fancyhead[L]{Opti Hausaufgaben}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\maketitle
+    \begin{enumerate}
+        % Aufgabe 1
+        \item[\textbf{1.}]
+        \begin{enumerate}
+            \item[a)]
+                \underline{Starttableau}:
+                \begin{align*}
+                \begin{alignedat}{6}
+                & x_3 &\ = &\ \frac{1}{2} &\ - &\  x_1 &\ + &\           3x_2 \\
+                & x_4 &\ = &\           3 &\ - &\  x_1 &\ + &\            x_2 \\
+                & x_5 &\ = &\           1 &\ + &\ 2x_1 &\ - &\ \frac{1}{3}x_2 \\
+                &\rlap{\rule{5cm}{.1pt}} &&&&&&\\
+                & z   &\ = &              &    &\  x_1 &\ + &\  4x_2
+                \end{alignedat}
+                \end{align*}
+                1. Iteration:\\
+                Eingangsvariable: $x_2$\\
+                Ausgangsvariable: $x_5$, was leicht ersichtlich ist, da nur in der $x_5$-Gleichung der $x_2$-Faktor negativ ist.\\
+                Es folgt:
+                \begin{align*}
+                    & x_2 = 3 + 6x_1 - 3x_5\\
+                    & x_3 = \frac{1}{2} - x_1 + 3 \left( 3 + 6x_1 - 3x_5 \right)\\
+                    &   \ = \frac{19}{2} +17x_1 - 9x_5\\
+                    & x_4 = 3 - x_1 \left( 3 + 6x_1 - 3x_5 \right)\\
+                    &   \ = 6 + 5x_1 - 3x_5\\
+                    &   z = x_1 + 4 \left( 3 + 6x_1 - 3x_5 \right)\\
+                    &   \ = 12 + 25_x1 - 12x_5
+                \end{align*}
+                \underline{Ergebnis der 1. Iteration:}
+                \begin{align*}
+                \begin{alignedat}{6}
+                & x_2 &\ = &\            3 &\ + &\  6x_1 &\ - &\ 3x_5 \\
+                & x_3 &\ = &\ \frac{19}{2} &\ + &\ 17x_1 &\ - &\ 9x_5 \\
+                & x_4 &\ = &\            6 &\ + &\  5x_1 &\ - &\ 3x_5 \\
+                &\rlap{\rule{5cm}{.1pt}} &&&&&&\\
+                & z   &\ = &\           12 &\ + &\ 25x_1 &\ - &\ 12x_5
+                \end{alignedat}
+                \end{align*}
+                Die nächste Eingangsvariable wäre $x_1$, doch $x_1$ ist in keiner Schlupfvariablengleichung beschränkt.
+                Also ist das Ergebnis ``unbeschränkt''.\\
+                Sei $x_1 = t$, $x_2 = 3+ 6t$, $x_5 = 0$.
+                So ist die entsprechende Halbgerade, in Parameterform:
+                \begin{align*}
+                \begin{pmatrix}
+                x_1\\
+                x_2
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                0\\
+                3
+                \end{pmatrix}
+                + t \cdot
+                \begin{pmatrix}
+                1\\
+                6
+                \end{pmatrix}
+                \end{align*}
+            \item[b)]
+            Folgender Graph ergibt sich:
+
+            \begin{tikzpicture}
+                        \path[fill = gray!30] (0,0)--(0,3)--(0.8,8)--(8,8)--(8,5)--(4.2,1.2)--(0.5,0)--cycle;
+                        \begin{axis}[
+                            ymin = 0,ymax = 8,
+                            xmin = 0,xmax = 8,
+                            x = 1cm, y = 1cm,
+                            axis x line=middle,
+                            axis y line=middle,
+                            axis line style=->,
+                            xlabel={$x_1$},
+                            ylabel={$x_2$},
+                            ]
+                            \addplot[domain=0:8, very thick, no marks, black] {(1/3)*x - (1/6)}; %\addlegendentry{NB 1};
+                            \addplot[domain=0:8, very thick, no marks, black] {x - 3}; %\addlegendentry{NB 2};
+                            \addplot[domain=0:8, very thick, no marks, black, dotted] {6 * x + 3}; %\addlegendentry{NB 3};
+                            \addplot[domain=0:8, very thick, no marks, black, dotted] {-(1/4)*x + 5}; %\addlegendentry{Lösungsgerade}
+                        \end{axis}
+            \end{tikzpicture} \\
+            Die gepunktete Halbgerade ist diejenige, die wir in Unteraufgabe a) ermittelt haben. Würde man das graphische Verfahren auf das
+            LP-Problem aus Aufgabe a) anwenden, würde man die Lösungsgerade nicht einzeichnen können, da der Lösungsbereich unendlich groß ist.
+
+            \item[c)]
+            Zunächst machen wir uns klar, dass aus Unteraufgabe a) hervorgeht, dass: $z = 12 + 25t$.
+            Zulässige Lösung für $z = 50$:
+            \begin{align*}
+                50 &= 12 + 25t\\
+                38 &= 25t\\
+                \frac{38}{25} &= t\\
+                \Rightarrow
+                    x_1 &= \frac{38}{25}\\
+                \Rightarrow
+                    x_2 &= \frac{303}{25}
+            \end{align*}
+            Zulässige Lösung für $z = 200$:
+            \begin{align*}
+                200 &= 12 + 25t\\
+                t &= \frac{188}{25}\\
+                \Rightarrow x_1 &= \frac{188}{25}\\
+                \Rightarrow x_2 &= \frac{1203}{25}
+            \end{align*}
+            Zulässige Lösung für $z = 1000$:
+            \begin{align*}
+                1000 &= 12 + 25t\\
+                t &= \frac{988}{25}\\
+                \Rightarrow x_1 &= \frac{988}{25}\\
+                \Rightarrow x_2 &= \frac{6003}{25}
+            \end{align*}
+        \end{enumerate}
+        % Aufgabe 2
+        \item[\textbf{2.}]
+            
+    \end{enumerate}
+
+
+\end{document}
