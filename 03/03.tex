@@ -150,64 +150,82 @@
         \end{enumerate}
         % Aufgabe 2
         \item[\textbf{2.}]
-        Wir erstellen unser Hilfsproblem:
-        \begin{align*}
-        \begin{alignedat}{5}
-        & \text{maximiere } & & & &\ - &\ x_0 & & \\
-        & \rlap{unter den Nebenbedingungen} & & & & & & & \\
-        && -x_1 &\ + &\  x_2 &\ - &\ x_0 &\ \leq &\  9 \\
-        && 8x_1 &\ - &\ 2x_2 &\ - &\ x_0 &\ \leq &\  3 \\
-        && -x_1 &\ - &\  x_2 &\ - &\ x_0 &\ \leq &\ -2 \\
-        && & & & & \llap{$x_0, x_1, x_2$} &\ \geq &\ 0 
-        \end{alignedat}
-        \end{align*}
+        \begin{enumerate}
+            \item[a)]
+            Wir erstellen unser Hilfsproblem:
+            \begin{align*}
+            \begin{alignedat}{5}
+            & \text{maximiere } & & & &\ - &\ x_0 & & \\
+            & \rlap{unter den Nebenbedingungen} & & & & & & & \\
+            && -x_1 &\ + &\  x_2 &\ - &\ x_0 &\ \leq &\  9 \\
+            && 8x_1 &\ - &\ 2x_2 &\ - &\ x_0 &\ \leq &\  3 \\
+            && -x_1 &\ - &\  x_2 &\ - &\ x_0 &\ \leq &\ -2 \\
+            && & & & & \llap{$x_0, x_1, x_2$} &\ \geq &\ 0 
+            \end{alignedat}
+            \end{align*}
 
-        \newpage
+            \newpage
 
-        Wir erhalten das folgende Tableau:
-        \begin{align*}
-        \begin{alignedat}{6}
-        && x_3 &\ = &\  9 &\ + &\  x_1 &\ - &\  x_2 &\ + &\ x_0 \\
-        && x_4 &\ = &\  3 &\ - &\ 8x_1 &\ + &\ 2x_2 &\ + &\ x_0 \\
-        && x_5 &\ = &\ -2 &\ + &\  x_1 &\ + &\  x_2 &\ + &\ x_0 \\
-        &\rlap{\rule{5cm}{.1pt}} &&&&&&&&&\\
-        && w   &\ = &     &    &       &    &       &\ - &\ x_0
-        \end{alignedat}
-        \end{align*}
-        Das korrigierte Tableau, mit Eingangsvariable $x_0$ und Ausgangsvariable $x_5$ ist:
-        \begin{align*}
-        \begin{alignedat}{6}
-        && x_0 &\ = &\  2 &\ - &\  x_1 &\ - &\  x_2 &\ - &\ x_5 \\
-        && x_3 &\ = &\ 11 &    &       &\ - &\ 2x_2 &\ - &\ x_5 \\
-        && x_4 &\ = &\  5 &\ - &\ 9x_1 &\ + &\  x_2 &\ - &\ x_5 \\
-        &\rlap{\rule{5cm}{.1pt}} &&&&&&&&&\\
-        && w   &\ = &\ -2 &\ + &\  x_1 &\ + &\  x_2 &\ + &\ x_5
-        \end{alignedat}
-        \end{align*}
+            Wir erhalten das folgende Tableau:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_3 &\ = &\  9 &\ + &\  x_1 &\ - &\  x_2 &\ + &\ x_0 \\
+            && x_4 &\ = &\  3 &\ - &\ 8x_1 &\ + &\ 2x_2 &\ + &\ x_0 \\
+            && x_5 &\ = &\ -2 &\ + &\  x_1 &\ + &\  x_2 &\ + &\ x_0 \\
+            &\rlap{\rule{5cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = &     &    &       &    &       &\ - &\ x_0
+            \end{alignedat}
+            \end{align*}
+            Das korrigierte Tableau, mit Eingangsvariable $x_0$ und Ausgangsvariable $x_5$ ist:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_0 &\ = &\  2 &\ - &\  x_1 &\ - &\  x_2 &\ + &\ x_5 \\
+            && x_3 &\ = &\ 11 &    &       &\ - &\ 2x_2 &\ + &\ x_5 \\
+            && x_4 &\ = &\  5 &\ - &\ 9x_1 &\ + &\  x_2 &\ + &\ x_5 \\
+            &\rlap{\rule{5cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = &\ -2 &\ + &\  x_1 &\ + &\  x_2 &\ - &\ x_5
+            \end{alignedat}
+            \end{align*}
 
-        Die nächste Eingangsvariable ist $x_1$, und als Ausgangsvariable wählen wir $x_0$. $x_0$ gibt nicht die strengste Beschränkung,
-        jedoch wählen wir es trotzdem, um es aus der Basis zu bekommen, nach Regel ($\star$) im Skript auf Seite 33. Wir erhalten:
-        \begin{align*}
-        \begin{alignedat}{6}
-        && x_1 &\ = &\   2 &\ - &\   x_2 &\ - &\  x_5 &\ - &\  x_0 \\
-        && x_3 &\ = &\  11 &\ - &   2x_2 &\ - &\  x_5 &    & \\
-        && x_4 &\ = &\ -13 &\ + &\ 10x_2 &\ + &\ 8x_5 &\ + &\ 9x_0 \\
-        &\rlap{\rule{5.5cm}{.1pt}} &&&&&&&&&\\
-        && w   &\ = &      &    &        &    &       &\ - &\ x_0
-        \end{alignedat}
-        \end{align*}
-        Wir erhalten die optimale Lösung $x_0 = 0$, $x_1 = 2$, $x_2 = 0$, $x_3 = 11$, $x_4 = -13$. Dem entsprechend ist $x_1 = 2$, $x_2 = 0$
-        eine zulässige Lösung für das ursprüngliche Problem. Wir erhalten außerdem das folgende Starttableau für das ursprüngliche Problem:
-        \begin{align*}
-        \begin{alignedat}{6}
-        && x_1 &\ = &\   2 &\ - &\   x_2 &\ - &\  x_5 \\
-        && x_3 &\ = &\  11 &\ - &   2x_2 &\ - &\  x_5 \\
-        && x_4 &\ = &\ -13 &\ + &\ 10x_2 &\ + &\ 8x_5 \\
-        &\rlap{\rule{4.5cm}{.1pt}} &&&&&&&\\
-        && w   &\ = &\  10 &\ + &\  6x_2 &\ - &\ 5x_5
-        \end{alignedat}
-        \end{align*}
-            
+            Die nächste Eingangsvariable ist $x_1$, und die Ausgangsvariable ist $x_4$. Es folgt:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_1 &\ = &\   \frac{5}{9} &\ + &\  \frac{1}{9}x_2 &\ + &\ \frac{1}{9}x_5 &\ - &\ \frac{1}{9}x_4 \\
+            && x_0 &\ = &\  \frac{13}{9} &\ - &\ \frac{10}{9}x_2 &\ + &\ \frac{8}{9}x_5 &\ + &\ \frac{1}{9}x_4 \\
+            && x_3 &\ = &\            11 &\ - &\            2x_2 &\ + &\            x_5 &    & \\
+            &\rlap{\rule{5.5cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = &\ -\frac{13}{9} &\ + &\ \frac{10}{9}x_2 &\ - &\ \frac{8}{9}x_5 &\ - &\ \frac{1}{9}x_4
+            \end{alignedat}
+            \end{align*}
+
+            Die nächste Eingangsvariable ist $x_2$, die Ausgangsvariable $x_0$. Das entstehende Tableau ist:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_2 &\ = &\  \frac{13}{9} &\ + &\ \frac{8}{10}x_5 &\ + &\ \frac{1}{10}x_4 &\ - &\ \frac{9}{10}x_0 \\
+            && x_1 &\ = &\  \frac{7}{10} &\ + &\  \frac{1}{5}x_5 &\ - &\ \frac{1}{10}x_4 &\ + &\             x_0 \\
+            && x_3 &\ = &\  \frac{42}{5} &\ - &\  \frac{3}{5}x_5 &\ - &\ \frac{1}{10}x_4 &\ + &\  \frac{9}{5}x_0 \\
+            &\rlap{\rule{5.5cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = & & & & & &\ - &\ x_0
+            \end{alignedat}
+            \end{align*}
+
+            \newpage
+
+            Wir erhalten die optimale Lösung $x_0 = 0$, $x_1 = \frac{7}{10}$, $x_2 = \frac{13}{10}$, $x_3 = \frac{42}{5}$, $x_4 = 0$, $w = 0$.
+            Dem entsprechend ist $x_1 = \frac{7}{10}$, $x_2 = \frac{13}{10}$
+            eine zulässige Lösung für das ursprüngliche Problem. Wir erhalten außerdem das folgende Starttableau für das ursprüngliche Problem:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_2 &\ = &\ \frac{13}{9} &\ + &\ \frac{8}{10}x_5 &\ + &\ \frac{1}{10}x_4 \\
+            && x_1 &\ = &\ \frac{7}{10} &\ + &\  \frac{1}{5}x_5 &\ - &\ \frac{1}{10}x_4 \\
+            && x_3 &\ = &\ \frac{42}{5} &\ - &\  \frac{3}{5}x_5 &\ - &\ \frac{1}{10}x_4 \\
+            &\rlap{\rule{4.5cm}{.1pt}} &&&&&&&\\
+            && z   &\ = &\ \frac{89}{5} &\ + &\ \frac{49}{5}x_5 &\ + &\  \frac{3}{5}x_4
+            \end{alignedat}
+            \end{align*}
+
+            \item[b)]
+        \end{enumerate}
     \end{enumerate}
 
 
