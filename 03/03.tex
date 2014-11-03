@@ -187,7 +187,7 @@
             \end{alignedat}
             \end{align*}
 
-            Die nächste Eingangsvariable ist $x_1$, und die Ausgangsvariable ist $x_4$. Es folgt:
+            1. Iteration mit Eingangsvariable $x_1$ und Ausgangsvariable $x_4$:
             \begin{align*}
             \begin{alignedat}{6}
             && x_1 &\ = &\   \frac{5}{9} &\ + &\  \frac{1}{9}x_2 &\ + &\ \frac{1}{9}x_5 &\ - &\ \frac{1}{9}x_4 \\
@@ -198,13 +198,13 @@
             \end{alignedat}
             \end{align*}
 
-            Die nächste Eingangsvariable ist $x_2$, die Ausgangsvariable $x_0$. Das entstehende Tableau ist:
+            2. Iteration mit Eingangsvariable $x_2$ und Ausgangsvariable $x_0$:
             \begin{align*}
             \begin{alignedat}{6}
-            && x_2 &\ = &\  \frac{13}{9} &\ + &\ \frac{8}{10}x_5 &\ + &\ \frac{1}{10}x_4 &\ - &\ \frac{9}{10}x_0 \\
+            && x_2 &\ = &\  \frac{13}{10} &\ + &\ \frac{8}{10}x_5 &\ + &\ \frac{1}{10}x_4 &\ - &\ \frac{9}{10}x_0 \\
             && x_1 &\ = &\  \frac{7}{10} &\ + &\  \frac{1}{5}x_5 &\ - &\ \frac{1}{10}x_4 &\ + &\             x_0 \\
-            && x_3 &\ = &\  \frac{42}{5} &\ - &\  \frac{3}{5}x_5 &\ - &\ \frac{1}{10}x_4 &\ + &\  \frac{9}{5}x_0 \\
-            &\rlap{\rule{5.5cm}{.1pt}} &&&&&&&&&\\
+            && x_3 &\ = &\  \frac{42}{5} &\ - &\  \frac{3}{5}x_5 &\ - &\ \frac{1}{5}x_4 &\ + &\  \frac{9}{5}x_0 \\
+            &\rlap{\rule{5.7cm}{.1pt}} &&&&&&&&&\\
             && w   &\ = & & & & & &\ - &\ x_0
             \end{alignedat}
             \end{align*}
@@ -216,15 +216,83 @@
             eine zulässige Lösung für das ursprüngliche Problem. Wir erhalten außerdem das folgende Starttableau für das ursprüngliche Problem:
             \begin{align*}
             \begin{alignedat}{6}
-            && x_2 &\ = &\ \frac{13}{9} &\ + &\ \frac{8}{10}x_5 &\ + &\ \frac{1}{10}x_4 \\
+            && x_2 &\ = &\ \frac{13}{10} &\ + &\ \frac{8}{10}x_5 &\ + &\ \frac{1}{10}x_4 \\
             && x_1 &\ = &\ \frac{7}{10} &\ + &\  \frac{1}{5}x_5 &\ - &\ \frac{1}{10}x_4 \\
-            && x_3 &\ = &\ \frac{42}{5} &\ - &\  \frac{3}{5}x_5 &\ - &\ \frac{1}{10}x_4 \\
+            && x_3 &\ = &\ \frac{42}{5} &\ - &\  \frac{3}{5}x_5 &\ - &\ \frac{1}{5}x_4 \\
             &\rlap{\rule{4.5cm}{.1pt}} &&&&&&&\\
             && z   &\ = &\ \frac{89}{5} &\ + &\ \frac{49}{5}x_5 &\ + &\  \frac{3}{5}x_4
             \end{alignedat}
             \end{align*}
 
             \item[b)]
+            Wir erstellen unser Hilfsproblem:
+            \begin{align*}
+            \begin{alignedat}{5}
+            & \text{maximiere } & & & &\ - &\ x_0 & & \\
+            & \rlap{unter den Nebenbedingungen} & & & & & & & \\
+            &&   x_1 &\ - &\  x_2 &\ - &\ x_0 &\ \leq &\ -2 \\
+            && -2x_1 &\ - &\ 2x_2 &\ - &\ x_0 &\ \leq &\ -9 \\
+            &&  2x_1 &\ + &\  x_2 &\ - &\ x_0 &\ \leq &\  2 \\
+            && & & & & \llap{$x_0, x_1, x_2$} &\ \geq &\ 0 
+            \end{alignedat}
+            \end{align*}
+
+            Wir erhalten das folgende Tableau:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_3 &\ = &\ -2 &\ - &\  x_1 &\ + &\  x_2 &\ + &\ x_0 \\
+            && x_4 &\ = &\ -9 &\ + &\ 2x_1 &\ + &\ 2x_2 &\ + &\ x_0 \\
+            && x_5 &\ = &\  2 &\ - &\ 2x_1 &\ - &\  x_2 &\ + &\ x_0 \\
+            &\rlap{\rule{5cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = &     &    &       &    &       &\ - &\ x_0
+            \end{alignedat}
+            \end{align*}
+            Das korrigierte Tableau, mit Eingangsvariable $x_0$ und Ausgangsvariable $x_4$ ist:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_0 &\ = &\  9 &\ - &\ 2x_1 &\ - &\ 2x_2 &\ + &\ x_4 \\
+            && x_3 &\ = &\  7 &\ - &\ 3x_1 &\ - &\  x_2 &\ + &\ x_4 \\
+            && x_5 &\ = &\ 11 &\ - &\ 4x_1 &\ - &\ 3x_2 &\ + &\ x_4 \\
+            &\rlap{\rule{5cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = &\ -9 &\ + &\ 2x_1 &\ + &\ 2x_2 &\ - &\ x_4
+            \end{alignedat}
+            \end{align*}
+
+            1. Iteration mit Eingangsvariable $x_1$ und Ausgangsvariable $x_3$:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_1 &\ = &\  \frac{7}{3} &\ - &\ \frac{1}{3}x_2 &\ + &\ \frac{1}{3}x_4 &\ - &\ \frac{1}{3}x_3 \\
+            && x_0 &\ = &\ \frac{13}{3} &\ - &\ \frac{4}{3}x_2 &\ + &\ \frac{1}{3}x_4 &\ + &\ \frac{2}{3}x_3 \\
+            && x_5 &\ = &\  \frac{5}{3} &\ - &\ \frac{5}{3}x_2 &\ - &\ \frac{1}{3}x_4 &\ + &\ \frac{4}{3}x_3 \\
+            &\rlap{\rule{5.4cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = &\ -\frac{13}{3} &\ + &\ \frac{4}{3}x_2 &\ - &\ \frac{1}{3}x_4 &\ - &\ \frac{2}{3}x_3
+            \end{alignedat}
+            \end{align*}
+
+            2. Iteration mit Eingangsvariable $x_2$ und Ausgangsvariable $x_5$:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_2 &\ = &\ 1 &\ - &\ \frac{1}{5}x_4 &\ + &\ \frac{4}{5}x_3 &\ - &\ \frac{3}{5}x_5 \\
+            && x_1 &\ = &\ 2 &\ + &\ \frac{2}{5}x_4 &\ - &\ \frac{3}{5}x_3 &\ + &\ \frac{1}{5}x_5 \\
+            && x_0 &\ = &\ 3 &\ + &\ \frac{3}{5}x_4 &\ - &\ \frac{2}{5}x_3 &\ + &\ \frac{4}{5}x_5 \\
+            &\rlap{\rule{5.3cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = &\ -3 &\ - &\ \frac{3}{5}x_4 &\ + &\ \frac{2}{5}x_3 &\ - &\ \frac{4}{5}x_5
+            \end{alignedat}
+            \end{align*}
+
+            3. Iteration mit Eingangsvariable $x_3$ und Ausgangsvariable $x_1$:
+            \begin{align*}
+            \begin{alignedat}{6}
+            && x_3 &\ = &\ \frac{10}{3} &\ + &\ \frac{2}{3}x_4 &\ + &\   \frac{1}{9}x_5 &\ - &\ \frac{5}{3}x_1 \\
+            && x_2 &\ = &\ \frac{11}{3} &\ + &\ \frac{1}{3}x_4 &\ + &\  \frac{7}{45}x_5 &\ - &\ \frac{4}{3}x_1 \\
+            && x_0 &\ = &\  \frac{5}{3} &\ + &\ \frac{1}{3}x_4 &\ + &\ \frac{34}{45}x_5 &\ + &\ \frac{2}{3}x_1 \\
+            &\rlap{\rule{5.4cm}{.1pt}} &&&&&&&&&\\
+            && w   &\ = &\ -\frac{5}{3} &\ - &\ \frac{1}{3}x_4 &\ - &\ \frac{34}{45}x_5 &\ - &\ \frac{2}{3}x_1
+            \end{alignedat}
+            \end{align*}
+
+            Aus diesem Tableau ist die optimale Lösung des Hilfsproblems ablesbar. Aber, da $w<0$, besitzt das urpsrüngliche Problem keine zulässige Lösung.
+
         \end{enumerate}
     \end{enumerate}
 
