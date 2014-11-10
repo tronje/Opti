@@ -1,0 +1,257 @@
+\newcommand{\authorinfotitle}{Carolin Konietzny, 6523939, Gruppe 3\\ Tronje Krabbe, 6435002, Gruppe 7 \\ Julian Tobergte, 6414935, Gruppe 5}
+\newcommand{\authorinfo}{Carolin Konietzny, Tronje Krabbe, Julian Tobergte}
+\newcommand{\titleinfo}{Optimierung 02 27.10.2014}
+\newcommand{\qed}{\square}
+
+\documentclass [a4paper,11pt]{article}
+\usepackage[german,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{enumerate}
+%\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+
+\usepackage[a4paper,left=2cm,width=13cm,right=3cm]{geometry}
+
+% for dem plots
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+% ---
+
+\author{\authorinfotitle}
+\title{\titleinfo}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\authorinfo}
+\fancyhead[L]{Opti Hausaufgaben}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\maketitle
+    \begin{enumerate}
+        % Aufgabe 1
+        \item[\textbf{1.}]
+        \begin{enumerate}
+            \item[a)]
+                \begin{enumerate}
+                    \item[(i)]
+                        \textbf{Größter Koeffizient:}\\
+                        \underline{Starttableau:}
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_3 &\ = &\ 10 &\ - &\  x_1 &\ - &\  x_2 \\
+                        && x_4 &\ = &\  8 &\ - &\  x_1 &    &       \\
+                        && x_5 &\ = &\  3 &    &       &\ - &\  x_2 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\    &    &\ 2x_1 &\ + &\ 3x_2
+                        \end{alignedat}
+                        \end{align*}
+
+                        1. Iteration:\\
+                        Eingangsvariable: $x_2$\\
+                        Ausgangsvariable: $x_5$
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_2 &\ = &\  3 &    &       &\ - &\  x_5 \\
+                        && x_3 &\ = &\  7 &\ - &\  x_1 &\ + &\  x_5 \\
+                        && x_4 &\ = &\  8 &\ - &\  x_1 &    & \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\  9 &\ + &\ 2x_1 &\ - &\ 3x_5
+                        \end{alignedat}
+                        \end{align*}
+
+                        2. Iteration:\\
+                        Eingangsvariable: $x_1$\\
+                        Ausgangsvariable: $x_3$
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_1 &\ = &\  7 &\ + &\  x_5 &\ - &\  x_3 \\
+                        && x_2 &\ = &\  3 &\ - &\  x_5 &    &       \\
+                        && x_4 &\ = &\  1 &\ - &\  x_5 &\ + &\  x_3 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\ 23 &\ - &\  x_3 &\ - &\ 2x_3
+                        \end{alignedat}
+                        \end{align*}
+                        Dieses Tableau ergibt die optimale Lösung $x_1 = 7$, $x_2 = 3$ und $z = 23$.\\ \\
+
+                        \textbf{Größter Zuwachs:}\\
+                        \underline{Starttableau:}
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_3 &\ = &\ 10 &\ - &\  x_1 &\ - &\  x_2 \\
+                        && x_4 &\ = &\  8 &\ - &\  x_1 &    &       \\
+                        && x_5 &\ = &\  3 &    &       &\ - &\  x_2 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\    &    &\ 2x_1 &\ + &\ 3x_2
+                        \end{alignedat}
+                        \end{align*}
+
+                        1. Iteration:\\
+                        Eingangsvariable: $x_1$\\
+                        Ausgangsvariable: $x_4$
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_1 &\ = &\  8 &    &       &\ - &\  x_4 \\
+                        && x_3 &\ = &\  2 &\ - &\  x_2 &\ + &\  x_4 \\
+                        && x_5 &\ = &\  3 &\ - &\  x_2 & & \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\ 16 &\ + &\ 3x_2 &\ - &\ 2x_4
+                        \end{alignedat}
+                        \end{align*}
+
+                        2. Iteration:\\
+                        Einangsvariable: $x_2$\\
+                        Ausgangsvariable: $x_3$
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_2 &\ = &\  2 &\ + &\  x_4 &\ - &\  x_3 \\
+                        && x_1 &\ = &\  8 &\ - &\  x_4 &    & \\
+                        && x_5 &\ = &\  1 &\ - &\  x_4 &\ + &\  x_3 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\ 22 &\ + &\  x_4 &\ - &\ 3x_3
+                        \end{alignedat}
+                        \end{align*}
+
+                        3. Iteration:\\
+                        Eingangsvariable: $x_4$\\
+                        Ausgangsvariable: $x_5$
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_4 &\ = &\  1 &\ + &\  x_3 &\ - &\  x_5 \\
+                        && x_2 &\ = &\  3 &    &       &\ - &\  x_5 \\
+                        && x_1 &\ = &\  7 &\ - &\  x_3 &\ + &\  x_5 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\ 23 &\ - &\ 2x_3 &\ - &\  x_5
+                        \end{alignedat}
+                        \end{align*}
+
+                        Die Regel des größten Koeffizienten ist um eine Iteration schneller.
+
+                    \item[(ii)]
+                        Skizze:\\
+                        \begin{tikzpicture}
+                        \path[fill = gray!30] (0,0)--(0,2.25)--(5.25,2.25)--(6,1.5)--(6,0)--cycle;
+                        \begin{axis}[
+                            ymin = 0,ymax = 12,
+                            xmin = 0,xmax = 12,
+                            x = 0.75cm, y = 0.75cm,
+                            axis x line=middle,
+                            axis y line=middle,
+                            axis line style=->,
+                            xlabel={$x_1$},
+                            ylabel={$x_2$},
+                            ]
+                            \addplot[domain=0:12, very thick, no marks, black] {-x + 10}; %\addlegendentry{NB 1};
+                            \addplot[domain=0:12, very thick, no marks, black] {3}; %\addlegendentry{NB 2};
+                            \draw[very thick] (axis cs:8,0) -- (axis cs:8,12) node [above] {};
+                            %\addplot[domain=0:8, very thick, no marks, black, dotted] {}; %\addlegendentry{NB 3};
+                            %\addplot[domain=0:8, very thick, no marks, black, dashed] {-(1/4)*x + 5}; %\addlegendentry{Lösungsgerade}
+                        \end{axis}
+                        \end{tikzpicture}
+                        \\
+                        Bei der Wahl des größten Koeffizienten werden die Punkte in der Reihenfolge $T, P, Q$ durchlaufen,
+                        bei der Wahl des größten Zuwachses in der Reihenfolge $T, S, R, Q$.
+                \end{enumerate}
+            \item[b)]
+                \begin{enumerate}
+                    \item[(i)]
+                        \textbf{Größter Koeffizient:}\\
+                        \underline{Starttableau:}
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_3 &\ = &\ 10 &\ - &\ 5x_1 &\ - &\  x_2 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\    &    &\ 3x_1 &\ + &\  x_2
+                        \end{alignedat}
+                        \end{align*}
+
+                        1. Iteration:\\
+                        Eingangsvariable: $x_1$\\
+                        Ausgangsvariable: $x_3$
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_1 &\ = &\  2 &\ - &\ \frac{1}{5}x_2 &\ - &\ \frac{1}{5}x_3 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\  6 &\ + &\ \frac{2}{5}x_2 &\ - &\ \frac{3}{5}x_3
+                        \end{alignedat}
+                        \end{align*}
+
+                        2. Iteration:\\
+                        Eingangsvariable: $x_2$\\
+                        Ausgangsvariable: $x_1$
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_2 &\ = &\ 10 &\ - &\ x_3 &\ - &\ 5x_1 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\ 10 &\ - &\ x_3 &\ - &\ 2x_1
+                        \end{alignedat}
+                        \end{align*}
+
+                        Dieses Tableau gibt die optimale Lösung $x_1 = 0$, $x_2 = 10$ und $z = 10$.\\ \\
+
+                        \textbf{Größter Zuwachs:}\\
+                        \underline{Starttableau:}
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_3 &\ = &\ 10 &\ - &\ 5x_1 &\ - &\  x_2 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\    &    &\ 3x_1 &\ + &\  x_2
+                        \end{alignedat}
+                        \end{align*}
+
+                        1. Iteration:\\
+                        Eingangsvariable: $x_2$\\
+                        Ausgangsvariable: $x_3$
+                        \begin{align*}
+                        \begin{alignedat}{6}
+                        && x_2 &\ = &\ 10 &\ - &\ 5x_1 &\ - &\ x_3 \\
+                        &\rlap{\rule{4cm}{.1pt}} &&&&&&&\\
+                        && z   &\ = &\ 10 &\ - &\ 2x_1 &\ - &\ x_3
+                        \end{alignedat}
+                        \end{align*}
+
+                        Hier ist die Regel vom größten Zuwachs schneller.
+                        \newpage
+
+                    \item[(ii)]
+                        Skizze:\\
+                        \begin{tikzpicture}
+                        \path[fill = gray!30] (0,0)--(0,7.5)--(2,0)--cycle;
+                        \begin{axis}[
+                            ymin = 0,ymax = 12,
+                            xmin = 0,xmax = 5,
+                            x = 1cm, y = 0.75cm,
+                            axis x line=middle,
+                            axis y line=middle,
+                            axis line style=->,
+                            xlabel={$x_1$},
+                            ylabel={$x_2$},
+                            ]
+                            \addplot[domain=0:12, very thick, no marks, black] {-5*x + 10}; %\addlegendentry{NB 1};
+                            %\addplot[domain=0:12, very thick, no marks, black] {3}; %\addlegendentry{NB 2};
+                            %\draw[very thick] (axis cs:8,0) -- (axis cs:8,12) node [above] {};
+                            %\addplot[domain=0:8, very thick, no marks, black, dotted] {}; %\addlegendentry{NB 3};
+                            %\addplot[domain=0:8, very thick, no marks, black, dashed] {-(1/4)*x + 5}; %\addlegendentry{Lösungsgerade}
+                        \end{axis}
+                        \end{tikzpicture}
+                        \\
+                        Bei der Regel des größten Koeffizienten werden die Punkte in der Reihenfolge $A, C, B$ durchlaufen, bei der Regel des größten
+                        Zuwachses in der Reihenfolge $A, B$.
+                \end{enumerate}
+        \end{enumerate}
+
+        % Aufgabe 2
+        \item[\textbf{2.}]
+
+    \end{enumerate}
+
+
+\end{document}
