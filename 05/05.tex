@@ -1,0 +1,142 @@
+\newcommand{\authorinfotitle}{Carolin Konietzny, 6523939, Gruppe 3\\ Tronje Krabbe, 6435002, Gruppe 7 \\ Julian Tobergte, 6414935, Gruppe 5}
+\newcommand{\authorinfo}{Carolin Konietzny, Tronje Krabbe, Julian Tobergte}
+\newcommand{\titleinfo}{Optimierung 05 27.10.2014}
+\newcommand{\qed}{\square}
+
+\documentclass [a4paper,11pt]{article}
+\usepackage[german,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{enumerate}
+%\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+
+\usepackage[a4paper,left=2cm,width=13cm,right=3cm]{geometry}
+
+% for dem plots
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+% ---
+
+\author{\authorinfotitle}
+\title{\titleinfo}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\authorinfo}
+\fancyhead[L]{Opti Hausaufgaben}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\maketitle
+    \begin{enumerate}
+        % Aufgabe 1
+        \item[\textbf{1.}]
+        \begin{enumerate}
+            \item[a)]
+                \begin{align*}
+                \begin{alignedat}{6}
+                & \text{maximiere } & x_{47} &\ + &\ x_{57} &\ + &\ x_{67} & & & & \\
+                & \rlap{unter den Nebenbedingungen} & & & & & & & & & \\
+                && x_{04} &\ + &\ x_{34} &\ - &\ x_{47} &    &         &\ = &\ 0 \\
+                && x_{35} &\ + &\ x_{25} &\ + &\ x_{65} &\ - &\ x_{57} &\ = &\ 0 \\
+                && x_{26} &\ + &\ x_{16} &\ - &\ x_{65} &\ - &\ x_{67} &\ = &\ 0 \\
+                && x_{03} &\ - &\ x_{34} &\ - &\ x_{35} &    &         &\ = &\ 0 \\
+                && x_{02} &\ - &\ x_{21} &\ - &\ x_{25} &\ - &\ x_{26} &\ = &\ 0 \\
+                && x_{01} &\ + &\ x_{21} &\ - &\ x_{16} &    &         &\ = &\ 0 \\
+                &&        &    &         &    &         &    &\ x_{01} &\ \leq &\ 7 \\
+                &&        &    &         &    &         &    &\ x_{02} &\ \leq &\ 1 \\
+                &&        &    &         &    &         &    &\ x_{03} &\ \leq &\ 3 \\
+                &&        &    &         &    &         &    &\ x_{04} &\ \leq &\ 2 \\
+                &&        &    &         &    &         &    &\ x_{16} &\ \leq &\ 3 \\
+                &&        &    &         &    &         &    &\ x_{21} &\ \leq &\ 4 \\
+                &&        &    &         &    &         &    &\ x_{25} &\ \leq &\ 5 \\
+                &&        &    &         &    &         &    &\ x_{26} &\ \leq &\ 2 \\
+                &&        &    &         &    &         &    &\ x_{34} &\ \leq &\ 5 \\
+                &&        &    &         &    &         &    &\ x_{35} &\ \leq &\ 4 \\
+                &&        &    &         &    &         &    &\ x_{47} &\ \leq &\ 5 \\
+                &&        &    &         &    &         &    &\ x_{57} &\ \leq &\ 2 \\
+                &&        &    &         &    &         &    &\ x_{65} &\ \leq &\ 8 \\
+                &&        &    &         &    &         &    &\ x_{67} &\ \leq &\ 3 \\
+                && & & & & & & \llap{ $ x_{ij} $ } &\ \geq &\ 0
+                \end{alignedat}
+                \end{align*}
+
+                \newpage
+
+            \item[b)]
+                \begin{align*}
+                \begin{alignedat}{6}
+                & \text{minimiere } \rlap{$ 5x_{01}+x_{06}+4x_{02}+3x_{03}+3x_{05}+3x_{16}+5x_{24} $} &&&&&&&&&\\
+                & \rlap{$ +5x_{35}+6x_{12}+7x_{23}+4x_{46}+3x_{45}+2x_{56} $} &&&&&&&&&\\
+                & \rlap{unter den Nebenbedingungen} & & & & & & & & & \\
+                && x_{04} &\ + &\ x_{34} &\ - &\ x_{47} &    &         &\ = &\ 0 \\
+                && x_{35} &\ + &\ x_{25} &\ + &\ x_{65} &\ - &\ x_{57} &\ = &\ 0 \\
+                && x_{26} &\ + &\ x_{16} &\ - &\ x_{65} &\ - &\ x_{67} &\ = &\ 0 \\
+                && x_{03} &\ - &\ x_{34} &\ - &\ x_{35} &    &         &\ = &\ 0 \\
+                && x_{02} &\ - &\ x_{21} &\ - &\ x_{25} &\ - &\ x_{26} &\ = &\ 0 \\
+                && x_{01} &\ + &\ x_{21} &\ - &\ x_{16} &    &         &\ = &\ 0 \\
+                &&        &    &         &    &         &    &\ x_{01} &\ \leq &\ 7 \\
+                &&        &    &         &    &         &    &\ x_{02} &\ \leq &\ 1 \\
+                &&        &    &         &    &         &    &\ x_{03} &\ \leq &\ 3 \\
+                &&        &    &         &    &         &    &\ x_{04} &\ \leq &\ 2 \\
+                &&        &    &         &    &         &    &\ x_{16} &\ \leq &\ 3 \\
+                &&        &    &         &    &         &    &\ x_{21} &\ \leq &\ 4 \\
+                &&        &    &         &    &         &    &\ x_{25} &\ \leq &\ 5 \\
+                &&        &    &         &    &         &    &\ x_{26} &\ \leq &\ 2 \\
+                &&        &    &         &    &         &    &\ x_{34} &\ \leq &\ 5 \\
+                &&        &    &         &    &         &    &\ x_{35} &\ \leq &\ 4 \\
+                &&        &    &         &    &         &    &\ x_{47} &\ \leq &\ 5 \\
+                &&        &    &         &    &         &    &\ x_{57} &\ \leq &\ 2 \\
+                &&        &    &         &    &         &    &\ x_{65} &\ \leq &\ 8 \\
+                &&        &    &         &    &         &    &\ x_{67} &\ \leq &\ 3 \\
+                && & & & & & & \llap{ $ x_{ij} $ } &\ \geq &\ 0
+                \end{alignedat}
+                \end{align*}
+
+            \item[c)]
+
+        \end{enumerate}
+
+        % Aufgabe 2
+        \item[\textbf{2.}]
+        \begin{enumerate}
+            \item[a)]
+                \begin{align*}
+                145 \cdot 6 + 35 \cdot 14 + 20 \cdot 9 \\
+                + 25 \cdot 6 + 35 \cdot 15 + 55 \cdot 11 \\
+                + 80 \cdot 10 + 140 \cdot 16 + 20 \cdot 13 \\
+                =6120
+                \end{align*}
+
+                \newpage
+            \item[b)]
+                Es sei der erste Index (A, B oder C) entsprechend der Eissorte, und der zweite Index der Veredelung (1 ist normal, 2 ist veredelt, und 3 ist mit
+                Überstunden veredelt). $x_{C1}$ beispielsweise ist dann Eissorte C, unveredelt.
+                \begin{align*}
+                \begin{alignedat}{12}
+                & \text{maximiere } & 6x_{A1} &\ + &\ 14x_{A2} &\ + &\ 9x_{A3} &\ + &\ 6x_{B1} &\ + &\ 15x_{B2} &\ + &\ 11x_{B3} &\ + &\ 10x_{C1} &\ + &\ 16x_{C2} &\ + &\ 13x_{C3} \\
+                & \rlap{unter den Nebenbedingungen} & & & & & & & & & & & & & & & & & \\
+                &&  x_{A1} &\ + &\ x_{A2} &\ + &\ x_{A3} &    &      & & & & & & & & &\ \leq &\  200 \\
+                && -x_{A1} &\ - &\ x_{A2} &\ - &\ x_{A3} &    &      & & & & & & & & &\ \leq &\ -200 \\
+                &&  &  &  & & &\ x_{B1} &\ + &\ x_{B2} &\ + &\ x_{B3} & & & & & & & &\ \leq &\ 115 \\
+                &&  &  &  & &\ - &\ x_{B1} &\ - &\ x_{B2} &\ - &\ x_{B3} & & & & & & & &\ \leq &\ -115 \\
+                &&  &  &  & &  & & & & & & & &\ x_{C1} &\ + &\ x_{C2} &\ + &\ x_{C3} &\ \leq &\ 240 \\
+                &&  &  &  & &  & & & & & & &\ - &\ x_{C1} &\ - &\ x_{C2} &\ - &\ x_{C3} &\ \leq &\ -240 \\
+                && & & & & & & & & & & & & & & \llap{$x_{A1}, x_{A2}, x_{A3},x_{B1}, x_{B2}, x_{B3}, x_{C1}, x_{C2}, x_{C3}$} &\ \geq &\ 0
+                \end{alignedat}
+                \end{align*}
+
+        \end{enumerate}
+
+    \end{enumerate}
+
+
+\end{document}
