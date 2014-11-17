@@ -1,6 +1,6 @@
 \newcommand{\authorinfotitle}{Carolin Konietzny, 6523939, Gruppe 3\\ Tronje Krabbe, 6435002, Gruppe 7 \\ Julian Tobergte, 6414935, Gruppe 5}
-\newcommand{\authorinfo}{Carolin Konietzny, Tronje Krabbe, Julian Tobergte}
-\newcommand{\titleinfo}{Optimierung 05 27.10.2014}
+\newcommand{\authorinfo}{Carolin Konietzny, Julian Tobergte, Tronje Krabbe}
+\newcommand{\titleinfo}{Optimierung 05}
 \newcommand{\qed}{\square}
 
 \documentclass [a4paper,11pt]{article}
@@ -15,6 +15,7 @@
 %\usepackage{breqn}
 \usepackage{fancyhdr}
 \usepackage{multicol}
+\usepackage{eurosym}
 
 \usepackage[a4paper,left=2cm,width=13cm,right=3cm]{geometry}
 
@@ -116,7 +117,7 @@
                 + 80 \cdot 10 + 140 \cdot 16 + 20 \cdot 13 \\
                 =6120
                 \end{align*}
-
+                Der Plan führt also zu einem Gewinn von 6120 \euro.
                 \newpage
             \item[b)]
                 Es sei der erste Index (A, B oder C) entsprechend der Eissorte, und der zweite Index der Veredelung (1 ist normal, 2 ist veredelt, und 3 ist mit
@@ -138,15 +139,17 @@
 
                 \begin{align*}
                 \begin{alignedat}{12}
-                & \text{maximiere } \rlap{ $ 6x_{A1} + 14x_{A2} + 9x_{A3} + 6x_{B1} + 15x_{B2} + 11x_{B3} + 10x_{C1} + 16x_{C2} + 13x_{C3} $} &&&&&&&&&&&&&&&&& \\
-                & \rlap{unter den Nebenbedingungen} & & & & & & & & & & & & & & & & & \\
+                & \text{maximiere } \rlap{ $ 6x_{A1} + 14x_{A2} + 9x_{A3} + 6x_{B1} + 15x_{B2} + 11x_{B3} + 10x_{C1} + 16x_{C2} + 13x_{C3} $} &&&&&&&&&&&&&&&&&&& \\
+                & \rlap{unter den Nebenbedingungen} & & & & & & & & & & & & & & & & & & & \\
                 &&  x_{A1} &\ + &\ x_{A2} &\ + &\ x_{A3} &    &  & & & & & & & & & & &\ \leq &\  200 \\
                 && -x_{A1} &\ - &\ x_{A2} &\ - &\ x_{A3} &    &  & & & & & & & & & & &\ \leq &\ -200 \\
-                &&  &  &  & & &\ x_{B1} &\ + &\ x_{B2} &\ + &\ x_{B3} & & & & & & & &\ \leq &\ 115 \\
-                &&  &  &  & &\ - &\ x_{B1} &\ - &\ x_{B2} &\ - &\ x_{B3} & & & & & & & &\ \leq &\ -115 \\
+                &&  &  &  & & &\ + &\ x_{B1} &\ + &\ x_{B2} &\ + &\ x_{B3} & & & & & & &\ \leq &\ 115 \\
+                &&  &  &  & & &\ - &\ x_{B1} &\ - &\ x_{B2} &\ - &\ x_{B3} & & & & & & &\ \leq &\ -115 \\
                 &&  &  &  & &  & & & & & & & &\ x_{C1} &\ + &\ x_{C2} &\ + &\ x_{C3} &\ \leq &\ 240 \\
                 &&  &  &  & &  & & & & & & &\ - &\ x_{C1} &\ - &\ x_{C2} &\ - &\ x_{C3} &\ \leq &\ -240 \\
-                && & & & & & & & & & & & & & & \llap{$x_{A1}, x_{A2}, x_{A3},x_{B1}, x_{B2}, x_{B3}, x_{C1}, x_{C2}, x_{C3}$} &\ \geq &\ 0
+                &&  &  &\ x_{A2} & & & & &\ + &\ x_{B2} & & & & &\ + &\ x_{C2} & & &\ \leq &\  210 \\
+                &&  &  &  & &\ x_{A3} & & & & &\ + &\ x_{B3} & & & & &\ + &\ x_{C3} &\ \leq &\ 125 \\
+                && & & & & & & & & & & & & & & & & \llap{$x_{A1}, x_{A2}, x_{A3},x_{B1}, x_{B2}, x_{B3}, x_{C1}, x_{C2}, x_{C3}$} &\ \geq &\ 0
                 \end{alignedat}
                 \end{align*}
 
