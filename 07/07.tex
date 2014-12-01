@@ -65,16 +65,18 @@
                     5y_1 - 2y_2 &= 5\
                     \end{align*}
                     Wir addieren beide Gleichungen und erhalten $8y_1 = 16 \Rightarrow y_1 = 2$. Es folgt trivialer Weise: $y_2 = \frac{5}{2}$.\\
-                    Wir setzen die erhaltene, vermeintlich optimale, Lösung in die erste Nebenbedingung von (D) ein:
+                    Die Lösung für (D) ist also:
                     \begin{align*}
-                    2 + 4 \cdot \frac{5}{2} + 2 \cdot 0 \geq 12
+                        y_1 &= 2\\
+                        y_2 &= \frac{5}{2}\\
+                        y_3 &= 0
                     \end{align*}
-                    Diese Ungleichung ist aber tatsälich mit Gleichheit erfüllt! Dementsprechend müsste die Schlupfvariable dazu, also $x_1$, ungleich Null sein.
-                    In der vorgeschlagenen Lösung ist sie aber gleich Null, weshalb sie nicht optimal sein kann! $\qed$
-                    % Wir setzen diese vermeintlich optimale Lösung in das Hauptproblem von (D) ein, und erhalten als Ergebnis $18$. Setzt man die vorgeschlagene
-                    % Lösung in (P) ein, so erhält man ebenfalls $18$ als Ergebnis. Nun liegt es nahe zu folgern, dass die vorgeschlagene Lösung tatsächlich
-                    % optimal ist. Aber: wir haben vergessen, die erhaltene Lösung von (D) in die Nebenbedingungen einzusetzen! Tut man dies, so erhält man für die
-                    % erste Nebenbe
+                    Wir überprüfen zunächst, ob der Dualitätssatz erfüllt ist:
+                    \begin{align*}
+                        6 \cdot \frac{4}{3} + 5 \cdot \frac{2}{3} - 2 \cdot \frac{5}{3} = 8\\
+                        \frac{22}{3} \cdot 2 + \frac{4}{3} \cdot \frac{5}{2} = \frac{56}{3}
+                    \end{align*}
+                    Der Dualitätssatz ist also nicht erfüllt. Somit ist die vorgeschlagene Lösung nicht optimal. $\qed$
                 \item[b)]
                     Wir stellen wieder zunächst das duale Problem (D) auf:
                     \begin{align*}
@@ -83,8 +85,7 @@
                     & \rlap{unter den Nebenbedingungen} & & & & & & & \\
                     && 2y_1 &\ - &\  y_2 &    &       &\ \geq &\  1\ \\
                     &&      &    &\ 3y_2 &\ + &\  y_3 &\ \geq &\  6\ \\
-                    && 2y_1 &\ + &\  y_2 &\ + &\ 5y_3 &\ \geq &\  7\ \\
-                    && 5y_1 &\ - &\ 2y_2 &\ + &\ 4y_3 &\ \geq &\  5\ \\
+                    &&  y_1 &\ - &\ 2y_2 &\ - &\  y_3 &\ \geq &\ -4\ \\
                     && & & & & \llap{$y_1,y_2,y_3$} &\ \geq &\ 0
                     \end{alignedat}
                     \end{align*}
@@ -130,7 +131,7 @@
                     \begin{alignedat}{10}
                     & \text{minimiere } & 200y_1 &\ + &\ 115y_2 &\ + &\ 240y_3 &\ + &\ 210y_4 &\ + &\ 125y_5 & & \\
                     & \rlap{unter den Nebenbedingungen} & & & & & & & & & & &  \\
-                    && y_1 &\ + &\ y_2 & & & & & & &\ \geq &\ 8\ \\
+                    && y_1 & & & & &\ + &\ y_4 & & &\ \geq &\ 8\ \\
                     && y_1 & & & & & & &\ + &\ y_5 &\ \geq &\ 3\ \\
                     &&  & &\ y_2 & & &\ + &\ y_4 & & &\ \geq &\ 9\ \\
                     &&  & &\ y_2 & & & & &\ + &\ y_5 &\ \geq &\ 5\ \\
@@ -153,7 +154,7 @@
                     $y_3 = 0$. Es bleibt folgendes Gleichungssystem zu lösen:
                     \begin{align*}
                     \begin{alignedat}{10}
-                    && y_1 &\ + &\ y_2 & & & & & & &\ = &\ 8\ \\
+                    && y_1 &    &      & & &\ + &\ y_4 & & &\ = &\ 8\ \\
                     &&     &    &\ y_2 & & &\ + &\ y_4 & & &\ = &\ 9\ \\
                     &&     &    &\ y_2 & & & & &\ + &\ y_5 &\ = &\ 5\ \\
                     &&     &    & & &\ y_3 & & &\ + &\ y_5 &\ = &\ 3\ \\
@@ -161,7 +162,7 @@
                     \end{align*}
                     Da $y_3 = 0$ ist die Lösung trivial. Man sieht sofort, dass $y_5 = 3$, und kann anhand dessen leicht die Werte der anderen Variablen erkennen:
                     \begin{align*}
-                        y_1 &= 6\\
+                        y_1 &= 1\\
                         y_2 &= 2\\
                         y_3 &= 0\\
                         y_4 &= 7\\
@@ -170,7 +171,7 @@
                     Die Schlupfbedingungen werden von dieser Lösung nicht verletzt, das heißt, es herscht überall Ungleichheit, wo Ungleichheit herschen sollte.
                     Nun prüfen wir, ob der Dualitätssatz erfüllt ist, oder nicht. Setzt man die vorgeschlagene Lösung in die Hauptbedingung des primalen Problems
                     ein, erhält man als Ergebnis $2275$. Setzt man die eben erhaltene Lösung des dualen Problems in die Hauptbedingung des selben ein,
-                    erhält man als Ergebnis aber $3275$. Die vorgeschlagene Lösung ist dementsprechend nicht optimal! $\qed$
+                    erhält man als Ergebnis ebenfalls $2275$. Die vorgeschlagene Lösung ist dementsprechend nicht optimal! $\qed$
             \end{enumerate}
 
     \end{enumerate}
