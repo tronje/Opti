@@ -59,7 +59,7 @@
                     Durch einsetzen der vorgeschlagenen Lösung in das primale Problem wissen wir, dass $y_3$ gleich Null sein muss. Dies ist trivialer Weise
                     daraus zu folgern, dass, nach Einsetzen, die erste und zweite Ungleichung von (P) mit Gleichheit, die dritte jedoch mit Ungleichheit erfüllt
                     sind. Außerdem wissen wir, dass in (D) die zweite und vierte Ungleichung mit Gleichheit erfüllt sind, da die entsprechenden Variablen der
-                    vorgeschlagenen Lösung gleich Null sind. Es bleibt folgendes Gleichungssystem zu lösen:
+                    vorgeschlagenen Lösung nicht gleich Null sind. Es bleibt folgendes Gleichungssystem zu lösen:
                     \begin{align*}
                     3y_1 + 2y_2 &= 11\ \\
                     5y_1 - 2y_2 &= 5\
@@ -73,10 +73,15 @@
                     \end{align*}
                     Wir überprüfen zunächst, ob der Dualitätssatz erfüllt ist:
                     \begin{align*}
-                        6 \cdot \frac{4}{3} + 5 \cdot \frac{2}{3} - 2 \cdot \frac{5}{3} = 8\\
-                        \frac{22}{3} \cdot 2 + \frac{4}{3} \cdot \frac{5}{2} = \frac{56}{3}
+                        11 \cdot \frac{4}{3} + 5 \cdot \frac{2}{3} = \frac{54}{3}\\
+                        \frac{22}{3} \cdot 2 + \frac{4}{3} \cdot \frac{5}{2} = \frac{54}{3}
                     \end{align*}
-                    Der Dualitätssatz ist also nicht erfüllt. Somit ist die vorgeschlagene Lösung nicht optimal. $\qed$
+                    Der Dualitätssatz ist also erfüllt.
+                    Als nächstes überprüfen wir die Nebenbedingungen, und stellen fest, dass die dritte mit unserer Lösung gar nicht erfüllt ist:
+                    \begin{align*}
+                        2 \cdot 2 + \frac{5}{2} = \frac{13}{2} \leq 7
+                    \end{align*}
+                    Somit ist die duale ``Lösung'' gar nicht zulässig, und die vorgeschlagene Lösung nicht optimal. $\qed$
                 \item[b)]
                     Wir stellen wieder zunächst das duale Problem (D) auf:
                     \begin{align*}
