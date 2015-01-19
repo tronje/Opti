@@ -1,0 +1,202 @@
+\newcommand{\authorinfotitle}{Carolin Konietzny, 6523939, Gruppe 3\\ Tronje Krabbe, 6435002, Gruppe 7 \\ Julian Tobergte, 6414935, Gruppe 5}
+\newcommand{\authorinfo}{Carolin Konietzny, Julian Tobergte, Tronje Krabbe}
+\newcommand{\titleinfo}{Optimierung 12}
+\newcommand{\qed}{\square}
+\newcommand{\tilD}{($\widetilde{\mathrm{D}}$)}
+
+\documentclass [a4paper,11pt]{article}
+\usepackage[german,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{enumerate}
+%\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{eurosym}
+
+\usepackage[a4paper,left=2cm,width=13cm,right=3cm]{geometry}
+
+% for dem plots
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+
+\usetikzlibrary{arrows}
+% ---
+
+\author{\authorinfotitle}
+\title{\titleinfo}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\authorinfo}
+\fancyhead[L]{Opti Hausaufgaben}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+        % Aufgabe 1
+    \item[\textbf{1.}]
+        \begin{enumerate}
+        \item[a)]
+            Die folgende Tabelle stellt den Ablauf des Dijkstra Algorithmus dar. Die Zahl in den entsprechenden Feldern ist der bisher kürzeste Weg,
+            der Buchstabe daneben der Vorgänger. Ein Wert ist unterstrichen, wenn er final ist.
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{c||c|c|c|c|c|c|c|c||l}
+                    It. & $s$ & $a$ & $b$ & $c$ & $d$ & $e$ & $f$ & $g$ & $S$ \\
+                    \hline
+                    0 & $\underline{0}$ & $1s$ & $\infty$ & $\infty$ & $4s$ & $8s$ & $\infty$ & $\infty$ & $\{s\}$ \\
+                    1 & $\underline{0}$ & $\underline{1s}$ & $3a$ & $\infty$ & $4s$ & $7a$ & $7a$ & $\infty$ & $\{s, a\}$ \\
+                    2 & $\underline{0}$ & $\underline{1s}$ & $\underline{3a}$ & $4b$ & $4s$ & $7a$ & $5b$ & $\infty$ & $\{s, a, b\}$ \\
+                    3 & $\underline{0}$ & $\underline{1s}$ & $\underline{3a}$ & $\underline{4b}$ & $4s$ & $7a$ & $5b$ & $8c$ & $\{s, a, b, c\}$ \\
+                    4 & $\underline{0}$ & $\underline{1s}$ & $\underline{3a}$ & $\underline{4b}$ & $\underline{4s}$ & $7a$ & $5b$ & $8c$ & $\{s, a, b, c, d\}$ \\
+                    5 & $\underline{0}$ & $\underline{1s}$ & $\underline{3a}$ & $\underline{4b}$ & $\underline{4s}$ & $6f$ & $\underline{5b}$ & $6f$ & $\{s, a, b, c, d, f\}$ \\
+                    6 & $\underline{0}$ & $\underline{1s}$ & $\underline{3a}$ & $\underline{4b}$ & $\underline{4s}$ & $\underline{6f}$ & $\underline{5b}$ & $6f$ & $\{s, a, b, c, d, f, e\}$ \\
+                    6 & $\underline{0}$ & $\underline{1s}$ & $\underline{3a}$ & $\underline{4b}$ & $\underline{4s}$ & $\underline{6f}$ & $\underline{5b}$ & $\underline{6f}$ & $\{s, a, b, c, d, f, e, g\}$ \\
+                \end{tabular}
+            \end{table}
+
+            Den Kürzeste-Pfade-Baum kann man aus der obigen Tabelle ablesen:
+
+            \begin{figure}[h]
+                \centering
+                \begin{tikzpicture}[
+                        auto,
+                        scale=2.5,
+                    ]
+                    \tikzstyle{vertex}=[
+                        circle,
+                        fill,
+                    ]
+                    \tikzstyle{edge}=[
+                        ->,
+                        >=stealth',
+                    ]
+                    \node [vertex, label=above:$s$] (s) at (0,1) {};
+                    \node [vertex, label=above:$a$] (a) at (1,1) {};
+                    \node [vertex, label=above:$b$] (b) at (2,1) {};
+                    \node [vertex, label=above:$c$] (c) at (3,1) {};
+                    \node [vertex, label=below:$d$] (d) at (0,0) {};
+                    \node [vertex, label=below:$e$] (e) at (1,0) {};
+                    \node [vertex, label=below:$f$] (f) at (2,0) {};
+                    \node [vertex, label=below:$g$] (g) at (3,0) {};
+
+                    \draw [edge] (s) to node {$1$} (a);
+                    \draw [edge] (a) to node {$2$} (b);
+                    \draw [edge] (b) to node {$1$} (c);
+                    \draw [edge] (s) to node {$4$} (d);
+                    \draw [edge] (b) to node {$2$} (f);
+                    \draw [edge] (f) to node {$1$} (e);
+                    \draw [edge] (f) to node {$1$} (g);
+                \end{tikzpicture}
+            \end{figure}
+    \item[b)]
+        Es genügt, ein einfaches Gegenbeispiel anzugeben:\\
+        \begin{tabular}{c|c|c|c}
+            $i$ & $v_i$ & $w_i$ & $q_i$ \\
+            \hline
+            $1$ & $5$ & $1$ & $5$ \\
+            $2$ & $8$ & $2$ & $4$ \\
+            $3$ & $14$ & $4$ & $3.5$
+        \end{tabular}
+        \\
+        Der Rucksack habe eine Kapazität von $4$.\\
+        Nach dem vorgeschlagenen Verfahren würden wir zuerst Gegenstand $1$ und dann Gegenstand $2$ einpacken, für ein
+        Wert von $13$. Der Rucksack wäre dann zu $3/4$ gefüllt, aber kein anderer Gegenstand würde mehr hineinpassen. Wählten wir stattdessen einfach nur
+        Gegenstand $3$, hätten wir einen Wert von $14$ mit einem vollständig gefüllten Rucksack.
+
+\end{enumerate}
+
+% Aufgabe 2
+    \item[\textbf{2.}]
+        \begin{enumerate}
+        \item[a)]
+            Eine mögliche Reihenfolge wäre:\\
+            $(a,e)$, $(d,h)$, $(e,f)$, $(e,b)$, $(f,g)$, $(g,h)$, $(g,c)$.\\
+            Es gibt unterschiedliche Möglichkeiten, da das Verhalten des Algorithmus bei Kanten gleichen Gewichts nicht genau
+            definiert ist, sie können in willkürlicher Reihenfolge hinzugefügt werden. So können unterschiedliche Bäume entstehen.
+            Der entstandene Baum sieht so aus:\\
+            \begin{figure}[h]
+                \centering
+                \begin{tikzpicture}[
+                        auto,
+                        scale=2.5,
+                    ]
+                    \tikzstyle{vertex}=[
+                        circle,
+                        fill,
+                    ]
+                    \tikzstyle{edge}=[
+                        -,
+                    ]
+                    \node [vertex, label=above:$a$] (a) at (0,1) {};
+                    \node [vertex, label=above:$b$] (b) at (1,1) {};
+                    \node [vertex, label=above:$c$] (c) at (2,1) {};
+                    \node [vertex, label=above:$d$] (d) at (3,1) {};
+                    \node [vertex, label=below:$e$] (e) at (0,0) {};
+                    \node [vertex, label=below:$f$] (f) at (1,0) {};
+                    \node [vertex, label=below:$g$] (g) at (2,0) {};
+                    \node [vertex, label=below:$h$] (h) at (3,0) {};
+
+                    \draw [edge] (a) to node {$1$} (e);
+                    \draw [edge] (e) to node {$2$} (b);
+                    \draw [edge] (e) to node {$1$} (f);
+                    \draw [edge] (f) to node {$3$} (g);
+                    \draw [edge] (g) to node {$4$} (c);
+                    \draw [edge] (g) to node {$3$} (h);
+                    \draw [edge] (h) to node {$1$} (d);
+                \end{tikzpicture}
+            \end{figure}
+
+    \item[b)]
+        (i): $(a,j)$, $(j,i)$, $(i,h)$, $(h,b)$, $(h,g)$, $(h,c)$, $(c,d)$, $(d,e)$, $(e,f)$\\
+        (ii): $(e,d)$, $(g,h)$, $(h,i)$, $(h,b)$, $(d,c)$, $(c,h)$, $(a,j)$, $(i,j)$, $(e,f)$\\
+        (iii): $(e,g)$, $(d,g)$, $(d,h)$, $(f,g)$, $(b,i)$, $(a,b)$, $(c,b)$, $(a,i)$\\
+        Zufälligerweise ist der Graph für alle drei Verfahren hier der gleiche:\\
+
+        \begin{figure}[h]
+            \centering
+            \begin{tikzpicture}[
+                    auto,
+                    scale=2.5,
+                ]
+                \tikzstyle{vertex}=[
+                    circle,
+                    fill,
+                ]
+                \tikzstyle{edge}=[
+                    -,
+                ]
+                \node [vertex, label=above:$e$] (e) at (0,1) {};
+                \node [vertex, label=above:$d$] (d) at (1,1) {};
+                \node [vertex, label=above:$c$] (c) at (2,1) {};
+                \node [vertex, label=above:$b$] (b) at (3,1) {};
+                \node [vertex, label=below:$a$] (a) at (4,1) {};
+                \node [vertex, label=below:$f$] (f) at (0,0) {};
+                \node [vertex, label=below:$g$] (g) at (1,0) {};
+                \node [vertex, label=below:$h$] (h) at (2,0) {};
+                \node [vertex, label=below:$i$] (i) at (3,0) {};
+                \node [vertex, label=below:$j$] (j) at (4,0) {};
+
+                \draw [edge] (a) to node {$2$} (j);
+                \draw [edge] (j) to node {$2$} (i);
+                \draw [edge] (i) to node {$1$} (h);
+                \draw [edge] (h) to node {$1$} (b);
+                \draw [edge] (h) to node {$1$} (g);
+                \draw [edge] (h) to node {$2$} (c);
+                \draw [edge] (c) to node {$2$} (d);
+                \draw [edge] (d) to node {$1$} (e);
+                \draw [edge] (e) to node {$4$} (f);
+            \end{tikzpicture}
+        \end{figure}
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
