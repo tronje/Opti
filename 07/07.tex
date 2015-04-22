@@ -1,0 +1,183 @@
+\newcommand{\authorinfotitle}{Carolin Konietzny, 6523939, Gruppe 3\\ Tronje Krabbe, 6435002, Gruppe 7 \\ Julian Tobergte, 6414935, Gruppe 5}
+\newcommand{\authorinfo}{Carolin Konietzny, Julian Tobergte, Tronje Krabbe}
+\newcommand{\titleinfo}{Optimierung 07}
+\newcommand{\qed}{\square}
+\newcommand{\tilD}{($\widetilde{\mathrm{D}}$)}
+
+\documentclass [a4paper,11pt]{article}
+\usepackage[german,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{enumerate}
+%\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{eurosym}
+
+\usepackage[a4paper,left=2cm,width=13cm,right=3cm]{geometry}
+
+% for dem plots
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+% ---
+
+\author{\authorinfotitle}
+\title{\titleinfo}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\authorinfo}
+\fancyhead[L]{Opti Hausaufgaben}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\maketitle
+    \begin{enumerate}
+        % Aufgabe 1
+        \item[\textbf{1.}]
+            \begin{enumerate}
+                \item[a)]
+                    Zunächst stellen wir das duale Problem (D) auf:
+                    \begin{align*}
+                    \begin{alignedat}{6}
+                    & \text{minimiere } & \frac{22}{3}y_1 &\ + &\ \frac{4}{3}y_2 &\ + &\ \frac{13}{3}y_3 & & \\
+                    & \rlap{unter den Nebenbedingungen} & & & & & & & \\
+                    &&  y_1 &\ + &\ 4y_2 &\ + &\ 2y_3 &\ \geq &\ 12\ \\
+                    && 3y_1 &\ + &\ 2y_2 &\ + &\  y_3 &\ \geq &\ 11\ \\
+                    && 2y_1 &\ + &\  y_2 &\ + &\ 5y_3 &\ \geq &\  7\ \\
+                    && 5y_1 &\ - &\ 2y_2 &\ + &\ 4y_3 &\ \geq &\  5\ \\
+                    && & & & & \llap{$y_1,y_2,y_3$} &\ \geq &\ 0
+                    \end{alignedat}
+                    \end{align*}
+                    Für folgende Aussagen nehmen wir an, dass die vorgeschlagene Lösung optimal ist.\\
+                    Durch einsetzen der vorgeschlagenen Lösung in das primale Problem wissen wir, dass $y_3$ gleich Null sein muss. Dies ist trivialer Weise
+                    daraus zu folgern, dass, nach Einsetzen, die erste und zweite Ungleichung von (P) mit Gleichheit, die dritte jedoch mit Ungleichheit erfüllt
+                    sind. Außerdem wissen wir, dass in (D) die zweite und vierte Ungleichung mit Gleichheit erfüllt sind, da die entsprechenden Variablen der
+                    vorgeschlagenen Lösung nicht gleich Null sind. Es bleibt folgendes Gleichungssystem zu lösen:
+                    \begin{align*}
+                    3y_1 + 2y_2 &= 11\ \\
+                    5y_1 - 2y_2 &= 5\
+                    \end{align*}
+                    Wir addieren beide Gleichungen und erhalten $8y_1 = 16 \Rightarrow y_1 = 2$. Es folgt trivialer Weise: $y_2 = \frac{5}{2}$.\\
+                    Die Lösung für (D) ist also:
+                    \begin{align*}
+                        y_1 &= 2\\
+                        y_2 &= \frac{5}{2}\\
+                        y_3 &= 0
+                    \end{align*}
+                    Wir überprüfen zunächst, ob der Dualitätssatz erfüllt ist:
+                    \begin{align*}
+                        11 \cdot \frac{4}{3} + 5 \cdot \frac{2}{3} = \frac{54}{3}\\
+                        \frac{22}{3} \cdot 2 + \frac{4}{3} \cdot \frac{5}{2} = \frac{54}{3}
+                    \end{align*}
+                    Der Dualitätssatz ist also erfüllt.
+                    Als nächstes überprüfen wir die Nebenbedingungen, und stellen fest, dass die dritte mit unserer Lösung gar nicht erfüllt ist:
+                    \begin{align*}
+                        2 \cdot 2 + \frac{5}{2} = \frac{13}{2} \leq 7
+                    \end{align*}
+                    Somit ist die duale ``Lösung'' gar nicht zulässig, und die vorgeschlagene Lösung nicht optimal. $\qed$
+                \item[b)]
+                    Wir stellen wieder zunächst das duale Problem (D) auf:
+                    \begin{align*}
+                    \begin{alignedat}{6}
+                    & \text{minimiere } & 5y_1 &\ + &\ 2y_2 &\ + &\ 2y_3 & & \\
+                    & \rlap{unter den Nebenbedingungen} & & & & & & & \\
+                    && 2y_1 &\ - &\  y_2 &    &       &\ \geq &\  1\ \\
+                    &&      &    &\ 3y_2 &\ + &\  y_3 &\ \geq &\  6\ \\
+                    &&  y_1 &\ - &\ 2y_2 &\ - &\  y_3 &\ \geq &\ -4\ \\
+                    && & & & & \llap{$y_1,y_2,y_3$} &\ \geq &\ 0
+                    \end{alignedat}
+                    \end{align*}
+                    Wir nehmen an, die vorgeschlagene Lösung sei optimal: \\
+                    Auch hier ist, wie in a), $y_3 = 0$, da die dritte Ungleichung des primalen Problems nicht durch Gleichheit erfüllt ist. Aus der
+                    vorgeschlagenen Lösung erkennen wir, dass die erste und zweite Ungleichung von (D) durch Gleichheit erfüllt sein müssen.
+                    Aufgrund dessen können wir aus der zweiten Nebenbedingung direkt ablesen: $y_2 = 2$. Daraus folgt trivialer Weise: $y_1 = \frac{3}{2}$.
+                    Wir fassen zusammen:
+                    \begin{align*}
+                    y_1 &= \frac{3}{2}\\
+                    y_2 &= 2\\
+                    y_3 &= 0
+                    \end{align*}
+                    Durch einsetzen dieser vermeintlich optimalen Lösung in (D) sehen wir, dass keine Schlupfbedingungen verletzt werden. Das heißt, die
+                    erste und zweite Nebenbedingung sind durch Gleichheit erfüllt, die dritte durch Ungleichheit. Setzen wir diese und die vorgeschlagene
+                    Lösung in ihre entsprechenden Hauptprobleme ein, erhalten wir bei beiden als Ergebnis $\frac{23}{2}$. Dies bedeutet, nach dem Satz vom
+                    komplementären Schlupf und dem Dualitätssatz, dass die vorgeschlagene Lösung optimal ist. $\qed$
+
+            \end{enumerate}
+
+        % Aufgabe 2
+        \item[\textbf{2.}]
+            \begin{enumerate}
+                \item[a)]
+                    Wir rechnen:\\
+                    $ 10 \cdot 15 + 105 \cdot 11 + 20 \cdot 13 + 220 \cdot 10 + 200 \cdot 14 = 6565 $
+                \item[b)]
+                    Wir entnehmen das LP-Problem zu der entsprechenden Aufgabe von Blatt 5 aus der in Stine bereitgestellten Musterlösung:\\
+                    \begin{align*}
+                    \begin{alignedat}{10}
+                    & \text{maximiere } & 8x_1 &\ + &\ 3x_2 &\ + &\ 9x_3 &\ + &\ 5x_4 &\ + &\ 6x_5 &\ + &\ 3x_6 & & \\
+                    & \rlap{unter den Nebenbedingungen} & & & & & & & & & & & & & \\
+                    && x_1 &\ + &\ x_2 & & & & & & & & &\ \leq &\ 200\ \\
+                    &&     &    &      & & x_3 &\ + &\ x_4 & & & & &\ \leq &\ 115\ \\
+                    &&     &    &      & &     &    &      & &\ x_5 &\ + &\ x_6 &\ \leq &\ 240\ \\
+                    && x_1 &    &      &\ + &\ x_3 & & &\ + &\ x_5 & & &\ \leq &\ 210\ \\
+                    &&     &    &\ x_2 &    &      &\ + &\ x_4 & & &\ + &\ x_6 &\ \leq &\ 125\ \\
+                    && & & & & & & & & & & \llap{$x_1,x_2,x_3,x_4,x_5,x_6$} &\ \geq &\ 0
+                    \end{alignedat}
+                    \end{align*}
+                    Wir stellen dazu das duale Problem (D) auf:
+                    \begin{align*}
+                    \begin{alignedat}{10}
+                    & \text{minimiere } & 200y_1 &\ + &\ 115y_2 &\ + &\ 240y_3 &\ + &\ 210y_4 &\ + &\ 125y_5 & & \\
+                    & \rlap{unter den Nebenbedingungen} & & & & & & & & & & &  \\
+                    && y_1 & & & & &\ + &\ y_4 & & &\ \geq &\ 8\ \\
+                    && y_1 & & & & & & &\ + &\ y_5 &\ \geq &\ 3\ \\
+                    &&  & &\ y_2 & & &\ + &\ y_4 & & &\ \geq &\ 9\ \\
+                    &&  & &\ y_2 & & & & &\ + &\ y_5 &\ \geq &\ 5\ \\
+                    && & & & &\ y_3 &\ + &\ y_4 & & &\ \geq &\ 6\ \\
+                    && & & & &\ y_3 & & &\ + &\ y_5 &\ \geq &\ 3\ \\
+                    && & & & & & & & & \llap{$y_1,y_2,y_3,y_4,y_5,$} &\ \geq &\ 0
+                    \end{alignedat}
+                    \end{align*}
+                    Wir nehmen an, die vorgeschlagene Lösung sei optimal. Sie lautet:
+                    \begin{align*}
+                        x_1 &= 200\\
+                        x_2 &= 0\\
+                        x_3 &= 10\\
+                        x_4 &= 105\\
+                        x_5 &= 0\\
+                        x_6 &= 20
+                    \end{align*}
+                    Hieraus folgt, dass alle Ungleichungen von (D), mit Ausnahme der zweiten und fünften, mit Gleichheit erfüllt sein müssen. Setzen wir die
+                    Lösung in (P) ein, stellen wir fest, dass alle Ungleichungen mit Gleichheit erfüllt sind, bis auf die dritte. Wir wissen also schonmal:
+                    $y_3 = 0$. Es bleibt folgendes Gleichungssystem zu lösen:
+                    \begin{align*}
+                    \begin{alignedat}{10}
+                    && y_1 &    &     & & &\ + &\ y_4 & & &\ = &\ 8\ \\
+                    &&     &    &\ y_2 & & &\ + &\ y_4 & & &\ = &\ 9\ \\
+                    &&     &    &\ y_2 & & & & &\ + &\ y_5 &\ = &\ 5\ \\
+                    &&     &    & & &\ y_3 & & &\ + &\ y_5 &\ = &\ 3\ 
+                    \end{alignedat}
+                    \end{align*}
+                    Da $y_3 = 0$ ist die Lösung trivial. Man sieht sofort, dass $y_5 = 3$, und kann anhand dessen leicht die Werte der anderen Variablen erkennen:
+                    \begin{align*}
+                        y_1 &= 1\\
+                        y_2 &= 2\\
+                        y_3 &= 0\\
+                        y_4 &= 7\\
+                        y_5 &= 3
+                    \end{align*}
+                    Die Schlupfbedingungen werden von dieser Lösung nicht verletzt, das heißt, es herscht überall Ungleichheit, wo Ungleichheit herschen sollte.
+                    Nun prüfen wir, ob der Dualitätssatz erfüllt ist, oder nicht. Setzt man die vorgeschlagene Lösung in die Hauptbedingung des primalen Problems
+                    ein, erhält man als Ergebnis $2275$. Setzt man die eben erhaltene Lösung des dualen Problems in die Hauptbedingung des selben ein,
+                    erhält man als Ergebnis ebenfalls $2275$. Die vorgeschlagene Lösung ist dementsprechend optimal! $\qed$
+            \end{enumerate}
+
+    \end{enumerate}
+\end{document}

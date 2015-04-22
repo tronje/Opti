@@ -1,0 +1,381 @@
+\newcommand{\authorinfotitle}{Carolin Konietzny, 6523939, Gruppe 3\\ Tronje Krabbe, 6435002, Gruppe 7 \\ Julian Tobergte, 6414935, Gruppe 5}
+\newcommand{\authorinfo}{Carolin Konietzny, Julian Tobergte, Tronje Krabbe}
+\newcommand{\titleinfo}{Optimierung 09}
+\newcommand{\qed}{\square}
+\newcommand{\tilD}{($\widetilde{\mathrm{D}}$)}
+
+\documentclass [a4paper,11pt]{article}
+\usepackage[german,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{enumerate}
+%\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{eurosym}
+
+\usepackage[a4paper,left=2cm,width=13cm,right=3cm]{geometry}
+
+% for dem plots
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+% ---
+
+\author{\authorinfotitle}
+\title{\titleinfo}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\authorinfo}
+\fancyhead[L]{Opti Hausaufgaben}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\maketitle
+    \begin{enumerate}
+        % Aufgabe 1
+        \item[\textbf{1.}]
+        \begin{enumerate}
+        \item[a)]
+            Die Eingangsdaten sind gegeben durch
+            \begin{align*}
+                A =
+                \stackrel{\mbox{$ \ x_1\ \ x_2\ \ x_3\ \ x_4\ \ x_5$}}{%
+                    \begin{pmatrix}
+                        -1 & 2 & 1 & 0 & 0\\
+                         0 & 1 & 0 & 1 & 0\\
+                         1 & 0 & 0 & 0 & 1
+                    \end{pmatrix}
+                  },\ b = 
+                \begin{pmatrix}
+                    3\\
+                    2\\
+                    5
+                \end{pmatrix}\ \text{und}\ c^T =
+                \stackrel{\mbox{$x_1\ x_2\ x_3\ x_4\ x_5$}}{
+                    \begin{pmatrix}
+                       2 & 1 & 0 & 0 & 0
+                    \end{pmatrix}\text{.}
+                }
+            \end{align*}
+            Das Verfahren startet mit
+            \begin{align*}
+                x^*_B =
+                \begin{pmatrix}
+                    3\\
+                    2\\
+                    5
+                \end{pmatrix}\ \text{und}\ B =
+                \stackrel{\mbox{$ x_3\ x_4\ x_5 $}}{
+                    \begin{pmatrix}
+                        1 & 0 & 0\\
+                        0 & 1 & 0\\
+                        0 & 0 & 1
+                    \end{pmatrix}
+                }
+                \text{.}
+            \end{align*}
+
+            \underline{\textbf{\textit{1. Iteration}}}\\
+            \underline{\textit{1. Schritt:}}\\
+            $y^T = \begin{pmatrix} 0 & 0 & 0 \end{pmatrix}$, da $B$ in dieser Iteration noch die Einheitsmatrix, und $c^T_B$ der Nullvektor ist.\\
+            
+            \underline{\textit{2. Schritt:}}\\
+            Für alle Spalten von $A_N$ gilt $y^T a = 0$, und die entsprechenden Komponenten von $c^T$ lauten $2$ und $1$, weshalb alle Spalten von $A_N$
+            als Eingangsspalte $a$ infrage kommen; wir wählen $a = \begin{pmatrix} -1\\ 0\\ 1 \end{pmatrix}$.
+            Unsere Eingangsvariable ist demnach $x_1$.\\
+
+            \underline{\textit{3. Schritt:}}\\
+            Wir lösen das Gleichungssystem $Bd=a$ und erhalten, da $B$ die Einheitsmatrix ist, $d=a=\begin{pmatrix} -1\\ 0\\ 1 \end{pmatrix}$.
+
+            \newpage
+
+            \underline{\textit{4. Schritt:}}\\
+            \begin{align*}
+                \begin{pmatrix}
+                    3\\
+                    2\\
+                    5
+                \end{pmatrix}
+                - t
+                \begin{pmatrix}
+                    -1\\
+                    0\\
+                    1
+                \end{pmatrix}
+                \geq
+                \begin{pmatrix}
+                    0\\
+                    0\\
+                    0
+                \end{pmatrix}
+            \end{align*}
+            Wir lösen dieses Gleichungssystem und erhalten $t=5$ als größtes $t$. Daraus folgt:
+            \begin{align*}
+                x^*_B - td = \begin{pmatrix} 8\\ 2\\ 0 \end{pmatrix}
+            \end{align*}
+
+            \underline{\textit{5. Schritt:}}\\
+            Update:
+            \begin{align*}
+                x^*_B =
+                \begin{pmatrix}
+                    x_3\\ x_4\\ x_1
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    8\\ 2\\ 5
+                \end{pmatrix},\ B=
+                \begin{pmatrix}
+                    1 & 0 & -1\\
+                    0 & 1 & 0\\
+                    0 & 0 & 1
+                \end{pmatrix}
+            \end{align*}
+
+            \underline{\textbf{\textit{2. Iteration}}}\\
+            \underline{\textit{1. Schritt:}}\\
+            \begin{align*}
+                y^T \cdot
+                \begin{pmatrix}
+                    1 & 0 & -1\\
+                    0 & 1 & 0\\
+                    0 & 0 & 1
+                \end{pmatrix} =
+                \begin{pmatrix}
+                    2 & 0 & 0
+                \end{pmatrix}
+            \end{align*}
+            \underline{\textit{2. Schritt:}}\\
+            Nun lässt sich keine Spalte in $A_N$ mehr finden, für die die Bedingung gilt. Die aktuelle Lösung ist also optimal und lautet:\\
+            $x_1 = 5$, $x_2 = 1$ und $z = 11$.
+
+
+        \item[b)]
+            Die Eingangsdaten sind gegeben durch
+            \begin{align*}
+                A =
+                \stackrel{\mbox{$ \ x_1\ \ x_2\ \ x_3\ \ x_4\ \ x_5\ \ x_6$}}{%
+                    \begin{pmatrix}
+                        -2 & -1 & 3 & 1 & 0 & 0\\
+                         1 & 2 & 0 & 0 & 1 & 0\\
+                         -1 & 0 & 1 & 0 & 0 & 1
+                    \end{pmatrix}
+                  },\ b = 
+                \begin{pmatrix}
+                    2\\
+                    5\\
+                    2
+                \end{pmatrix}\ \text{und}\ c^T =
+                \stackrel{\mbox{$x_1\ \ x_2\ \ x_3\ x_4\ \ x_5\ \ x_6$}}{
+                    \begin{pmatrix}
+                       -4 & 1 & 6 & 0 & 0 & 0
+                    \end{pmatrix}\text{.}
+                }
+            \end{align*}
+            Das Verfahren startet mit
+            \begin{align*}
+                x^*_B =
+                \begin{pmatrix}
+                    2\\
+                    5\\
+                    2
+                \end{pmatrix}\ \text{und}\ B =
+                \stackrel{\mbox{$ x_4\ x_5\ x_6 $}}{
+                    \begin{pmatrix}
+                        1 & 0 & 0\\
+                        0 & 1 & 0\\
+                        0 & 0 & 1
+                    \end{pmatrix}
+                }
+                \text{.}
+            \end{align*}
+
+            \newpage
+
+            \underline{\textbf{\textit{1. Iteration:}}}\\
+            \underline{\textit{1. Schritt:}}\\
+            $y^T = \begin{pmatrix} 0 & 0 & 0 \end{pmatrix}$, da $B$ in dieser Iteration noch die Einheitsmatrix, und $c^T_B$ der Nullvektor ist.\\
+
+            \underline{\textit{2. Schritt:}}\\
+            Wir können aus der $x_2$ und der $x_3$ Zeile frei wählen, und nehmen $a = \begin{pmatrix} -1\\ 2\\ 0 \end{pmatrix}$. Die Eingangsvariable
+            ist also $x_2$.\\
+
+            \underline{\textit{3. Schritt:}}\\
+            $d = a = \begin{pmatrix} -1\\ 2\\ 0 \end{pmatrix}$.
+
+            \underline{\textit{4. Schritt:}}\\
+            \begin{align*}
+                \begin{pmatrix}
+                    2\\ 5\\ 2
+                \end{pmatrix} - t
+                \begin{pmatrix}
+                    -1\\ 2\\ 0
+                \end{pmatrix} \geq
+                \begin{pmatrix}
+                    0\\ 0\\ 0
+                \end{pmatrix}
+            \end{align*}
+            Wir lösen das Gleichungssystem und erhalten $t = \frac{5}{2}$. Also:
+            \begin{align*}
+                \begin{pmatrix}
+                    2\\ 5\\ 2
+                \end{pmatrix} - \frac{5}{2}
+                \begin{pmatrix}
+                    -1\\ 2\\ 0
+                \end{pmatrix} =
+                \begin{pmatrix}
+                    \frac{9}{2}\\
+                    0\\
+                    2
+                \end{pmatrix}
+            \end{align*}
+            Da $x_B^* = \begin{pmatrix} x_4^*\\ x_5^*\\ x_6^* \end{pmatrix}$, ist $x_5^*$ unsere Ausgangsvariable.\\
+
+            \underline{\textit{5. Schritt:}}\\
+            Update:
+            \begin{align*}
+                x^*_B =
+                \begin{pmatrix}
+                    4.5\\
+                    2.5\\
+                    2
+                \end{pmatrix}\ \text{und}\ B =
+                \stackrel{\mbox{$ x_4\ \ x_2\ \ x_6 $}}{
+                    \begin{pmatrix}
+                        1 & -1 & 0\\
+                        0 & 2 & 0\\
+                        0 & 0 & 1
+                    \end{pmatrix}
+                }
+            \end{align*}
+
+            \underline{\textbf{\textit{2. Iteration:}}}\\
+            \underline{\textit{1. Schritt:}}\\
+            \begin{align*}
+                y^T
+                \begin{pmatrix}
+                    1 & -1 & 0\\
+                    0 & 2 & 0\\
+                    0 & 0 & 1
+                \end{pmatrix} = 
+                \begin{pmatrix}
+                    0 & 1 & 0
+                \end{pmatrix}
+                \Rightarrow y^T =
+                \begin{pmatrix}
+                    \frac{1}{2} & \frac{1}{2} & 0
+                \end{pmatrix}
+            \end{align*}
+
+            \underline{\textit{2. Schritt:}}\\
+            $a = \begin{pmatrix} 3\\ 0\\ 1 \end{pmatrix}$. Daraus folgt, dass unsere Eingangsvariable $x_3$ ist.\\
+
+            \underline{\textit{3. Schritt:}}\\
+            \begin{align*}
+                \begin{pmatrix}
+                    1 & -1 & 0\\
+                    0 & 2 & 0\\
+                    0 & 0 & 1
+                \end{pmatrix} \cdot d =
+                \begin{pmatrix}
+                    3\\ 0\\ 1
+                \end{pmatrix}
+                \Rightarrow
+                \begin{pmatrix}
+                    3\\ 0\\ 1
+                \end{pmatrix}
+            \end{align*}
+
+            \underline{\textit{4. Schritt:}}\\
+            \begin{align*}
+                \begin{pmatrix}
+                    4.5\\
+                    2.5\\
+                    2
+                \end{pmatrix} - t
+                \begin{pmatrix}
+                    3\\ 0\\ 1
+                \end{pmatrix} \geq
+                \begin{pmatrix}
+                    0\\ 0\\ 0
+                \end{pmatrix} \Rightarrow
+                t = \frac{3}{2}
+            \end{align*}
+            Es folgt:
+            \begin{align*}
+                \begin{pmatrix}
+                    4.5\\
+                    2.5\\
+                    2
+                \end{pmatrix} - \frac{3}{2}
+                \begin{pmatrix}
+                    3\\ 0\\ 1
+                \end{pmatrix} =
+                \begin{pmatrix}
+                    0\\
+                    2.5\\
+                    0.5
+                \end{pmatrix}
+            \end{align*}
+            Da $x_B^* = \begin{pmatrix} x_4^*\\ x_2^*\\ x_6^* \end{pmatrix}$, ist die Ausgangsvariable $x_4$.\\
+
+            \underline{\textit{5. Schritt:}}\\
+            Update:
+            \begin{align*}
+                x_B^* =
+                \begin{pmatrix}
+                    x_3^*\\
+                    x_2^*\\
+                    x_6^*
+                \end{pmatrix} =
+                \begin{pmatrix}
+                    1.5\\
+                    2.5\\
+                    1.5
+                \end{pmatrix} \ \text{und}\
+                \stackrel{\mbox{$ x_3\ \ x_2\ \ x_6 $}}{
+                    \begin{pmatrix}
+                        3 & -1 & 0\\
+                        0 & 2 & 0\\
+                        1 & 0 & 1
+                    \end{pmatrix}
+                }
+            \end{align*}
+
+            \underline{\textbf{\textit{3. Iteration:}}}\\
+            \underline{\textit{1. Schritt:}}\\
+            \begin{align*}
+                y^T = 
+                \begin{pmatrix}
+                    3 & -1 & 0\\
+                    0 & 2 & 0\\
+                    1 & 0 & 1
+                \end{pmatrix} =
+                \begin{pmatrix}
+                    6\\ 1\\ 0
+                \end{pmatrix} \Rightarrow
+                y^T =
+                \begin{pmatrix}
+                    \frac{13}{6}\\
+                    0.5\\
+                    -\frac{13}{6}
+                \end{pmatrix}
+            \end{align*}
+
+            Hier terminiert der Algorithmus, mit der optimalen Lösung: $x_1 = 0$, $x_2 = \frac{5}{2}$, $x_3 = 1.5$ und $z = \frac{23}{2}$.
+
+        \end{enumerate}
+
+        % Aufgabe 2
+        \item[\textbf{2.}]
+
+
+    \end{enumerate}
+\end{document}

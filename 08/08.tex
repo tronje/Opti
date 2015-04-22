@@ -1,0 +1,177 @@
+\newcommand{\authorinfotitle}{Carolin Konietzny, 6523939, Gruppe 3\\ Tronje Krabbe, 6435002, Gruppe 7 \\ Julian Tobergte, 6414935, Gruppe 5}
+\newcommand{\authorinfo}{Carolin Konietzny, Julian Tobergte, Tronje Krabbe}
+\newcommand{\titleinfo}{Optimierung 08}
+\newcommand{\qed}{\square}
+\newcommand{\tilD}{($\widetilde{\mathrm{D}}$)}
+
+\documentclass [a4paper,11pt]{article}
+\usepackage[german,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{enumerate}
+%\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{eurosym}
+
+\usepackage[a4paper,left=2cm,width=13cm,right=3cm]{geometry}
+
+% for dem plots
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+% ---
+
+\author{\authorinfotitle}
+\title{\titleinfo}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\authorinfo}
+\fancyhead[L]{Opti Hausaufgaben}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\maketitle
+    \begin{enumerate}
+        % Aufgabe 1
+        \item[\textbf{1.}]
+        \begin{enumerate}
+        \item[a)]
+            (D):
+            \begin{align*}
+            \begin{alignedat}{6}
+            & \text{minimiere } & -y_1 &\ + &\ 2y_2 &\ - &\ 3y_3 & & \\
+            & \rlap{unter den Nebenbedingungen} & & & & & & & \\
+            && -y_1 &\ + &\ 6y_2 &\ - &\  y_3 &\   =  &\  1\ \\
+            && 3y_1 &\ + &\  y_2 &\ - &\  y_3 &\   =  &\  3\ \\
+            &&  y_1 &\ + &\ 4y_2 &\ + &\ 2y_3 &\ \geq &\ -3\ \\
+            && -y_1 &\ - &\ 2y_2 &\ + &\  y_3 &\ \geq &\  2\ \\
+            && 7y_1 &\ + &\  y_2 &\ - &\ 2y_3 &\ \geq &\  1\ \\
+            && & & & & \llap{$y_1,y_3$} &\ \geq &\ 0
+            \end{alignedat}
+            \end{align*}
+        \item[b)]
+            (D):
+            \begin{align*}
+            \begin{alignedat}{10}
+            & \text{maximiere } & -3y_1 &\ + &\ 9y_2 &\ + &\ 5y_3 &\ + &\ 8y_4 &\ + &\ 4y_5 &\ - &\ y_6 &\ - &\ 10y_7 &\ + &\ 9y_8 & & \\
+            & \rlap{unter den Nebenbedingungen} & & & & & & & & & & & & & & & & & \\
+            &&  -y_1 &\ + &\  y_2 &\ + &\  y_3 &\ + &\ 2y_4 &\ + &\  y_5 &\ + &\ 4y_6 &\ - &\  4y_7 &\ + &\  y_8 &\ \geq &\  5 \\
+            &&  5y_1 &\ + &\ 4y_2 &    &       &\ + &\ 4y_4 &\ - &\ 3y_5 &\ - &\ 3y_6 &\ + &\  3y_7 &\ + &\ 2y_8 &\ \geq &\ -1 \\
+            &&  -y_1 &\ + &\  y_2 &\ + &\  y_3 &\ - &\  y_4 &\ + &\  y_5 &    &       &\ - &\  5y_7 &\ + &\  y_8 &\   =  &\ 1 \\
+            && -2y_1 &    &       &    &       &\ + &\  y_4 &    &       &    &       &\ + &\   y_7 &\ + &\ 7y_8 &\   =  &\ 2 \\
+            && & & & & & & & & & & & & & & \llap{$y_1,y_3,y_6,y_7,y_8$} &\ \geq &\ 0
+            \end{alignedat}
+            \end{align*}
+
+        \end{enumerate}
+
+        % Aufgabe 2
+        \item[\textbf{2.}]
+            \begin{enumerate}
+            \item[a)]
+            \begin{enumerate}
+                \item[(i)]
+                    \underline{Starttableau}:
+                    \begin{align*}
+                    \begin{alignedat}{6}
+                    && x_3 &\ = &\  100 &\ - &\   x_1 &\ - &\   x_2 \\
+                    && x_4 &\ = &\ 4000 &\ - &\ 10x_1 &\ - &\ 50x_2 \\
+                    &\rlap{\rule{4.8cm}{.1pt}} &&&&&&&\\
+                    && z   &\ = &       &    &\ 40x_1 &\ + &\ 70x_2
+                    \end{alignedat}
+                    \end{align*}
+
+                    Erste Iteration:\\
+                    Eingangsvariable: $x_2$\\
+                    Ausgangsvariable: $x_4$
+                    \begin{align*}
+                    \begin{alignedat}{6}
+                    && x_2 &\ = &\   80 &\ - &\ \frac{1}{5}x_1 &\ - &\ \frac{1}{50}x_4 \\
+                    && x_3 &\ = &\   20 &\ - &\ \frac{4}{5}x_1 &\ + &\ \frac{1}{50}x_4 \\
+                    &\rlap{\rule{4.8cm}{.1pt}} &&&&&&&\\
+                    && z   &\ = &\ 5600 &\ + &\ 26x_1 &\ - &\ \frac{7}{5}x_4
+                    \end{alignedat}
+                    \end{align*}
+
+                    Zweite Iteration:\\
+                    Eingangsvariable: $x_1$\\
+                    Ausgangsvariable: $x_3$
+                    \begin{align*}
+                    \begin{alignedat}{6}
+                    && x_1 &\ = &\   25 &\ + &\ \frac{1}{40}x_4 &\ - &\ \frac{5}{4}x_3 \\
+                    && x_2 &\ = &\   75 &\ - &\ \frac{1}{40}x_4 &\ + &\ \frac{1}{4}x_3 \\
+                    &\rlap{\rule{4.8cm}{.1pt}} &&&&&&&\\
+                    && z   &\ = &\ 6250 &\ - &\  \frac{3}{4}x_4 &\ - &\ \frac{65}{2}x_3
+                    \end{alignedat}
+                    \end{align*}
+                    Hier terminiert der Simplex-Algorithmus. Die optimale Lösung ist also $x_1 = 25$, $x_2 = 75$, was mit der angegebenen
+                    Lösung im Skript übereinstimmt.
+
+                \item[(ii)]
+                    Zunächst bilden wir das duale Problem (D):
+                    \begin{align*}
+                    \begin{alignedat}{6}
+                    & \text{minimiere } & 100y_1 &\ + &\ 4000y_2 & & \\
+                    & \rlap{unter den Nebenbedingungen} & & & & & \\
+                    && y_1 &\ + &\ 10y_2 &\ \geq &\  40\ \\
+                    && y_1 &\ + &\ 40y_2 &\ \geq &\  70\ \\
+                    && & & \llap{$y_1,y_2$} &\ \geq &\ 0
+                    \end{alignedat}
+                    \end{align*}
+                    Angenommen, die eben ermittelte und im Skript angegebene Lösung ist optimal: Die beiden Ungleichungen des dualen Problems
+                    müssen tatsächlich mit Gleichheit erfüllt sein, da beide Variablen der angegebenen Lösung ungleich Null sind.
+                    Somit kommt man leicht auf die vermeintlich optimale Lösung von (D). Man zieht einfach die erste Gleichung von der zweiten ab,
+                    und erhält trivialer Weise die Lösung: $y_1 = \frac{65}{2}$, $y_2 = \frac{3}{4}$.
+                    Diese Lösung ist zulässig, und stimmt mit allen Schlupfbedingungen überein. Wir prüfen zuletzt noch den Dualitätssatz. Aus (i)
+                    wissen wir, dass das Hauptproblem von (P) einen Wert von 6250 annimmt. Dies muss auch mit unserer Lösung von (D) passieren:
+                    $100 \cdot \frac{65}{2} + 4000 \cdot \frac{3}{4} = 6250$. Die Lösungen sind also optimal!
+
+            \end{enumerate}
+            \item[b)]
+                \underline{Starttableau}:
+                \begin{align*}
+                \begin{alignedat}{6}
+                && x_3 &\ = &\  100 &    &    &\ - &\   x_1 &\ - &\   x_2 \\
+                && x_4 &\ = &\ 4000 &\ + &\ t &\ - &\ 10x_1 &\ - &\ 50x_2 \\
+                &\rlap{\rule{5.5cm}{.1pt}} &&&&&&&&&\\
+                && z   &\ = &       &    &    &    &\ 40x_1 &\ + &\ 70x_2
+                \end{alignedat}
+                \end{align*}
+
+                Erste Iteration:\\
+                Eingangsvariable: $x_2$\\
+                Ausgangsvariable: $x_4$, da $x_2 \leq 80 + \frac{1}{50}t$ eine stärkere Einschränkung ist als $x_2 \leq 100$\\
+                Hier wurde genutzt, dass $t \leq 1000$
+                \begin{align*}
+                \begin{alignedat}{6}
+                && x_2 &\ = &\   80 &\ + &\ \frac{1}{50}t &\ - &\ \frac{1}{5}x_1 &\ - &\ \frac{1}{50}x_4 \\
+                && x_3 &\ = &\   20 &\ - &\ \frac{1}{50}t &\ - &\ \frac{4}{5}x_1 &\ + &\ \frac{1}{50}x_4 \\
+                &\rlap{\rule{5.8cm}{.1pt}} &&&&&&&&&\\
+                && z   &\ = &\ 5600 &\ + &\ \frac{7}{5}t &\ + &\ 26x_1 &\ - &\ \frac{7}{5}x_4
+                \end{alignedat}
+                \end{align*}
+
+                Zweite Iteration:\\
+                Eingangsvariable: $x_1$\\
+                Ausgangsvariable: $x_3$, da $x_1 \leq 25 - \frac{1}{40}t$ eine stärkere Einschränkung ist als $x_1 \leq 400 + \frac{1}{10}t$\\
+                Hier wurde genutzt, dass $t \geq 0$
+                \begin{align*}
+                \begin{alignedat}{6}
+                && x_1 &\ = &\   25 &\ - &\ \frac{1}{40}t &\ + &\ \frac{1}{40}x_4 &\ - &\ \frac{5}{4}x_3 \\
+                && x_2 &\ = &\   75 &\ + &\ \frac{1}{40}t &\ - &\ \frac{1}{40}x_4 &\ + &\ \frac{1}{4}x_3 \\
+                &\rlap{\rule{5.8cm}{.1pt}} &&&&&&&&&\\
+                && z   &\ = &\ 6250 &\ + &\ \frac{3}{4}t &\ - &\  \frac{3}{4}x_4 &\ - &\ \frac{65}{2}x_3
+                \end{alignedat}
+                \end{align*}
+
+            \end{enumerate}
+
+    \end{enumerate}
+\end{document}
